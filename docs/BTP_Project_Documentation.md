@@ -1,11 +1,11 @@
 # VARIATIONAL AUTOENCODERS FOR TELUGU CHARACTER GENERATION
 ## Bachelor's Thesis Project (BTP) - Comprehensive Documentation
 
-**Student:** Rohit  
-**Institution:** [Your University]  
-**Department:** Computer Science & Engineering  
-**Project Domain:** Deep Learning, Generative Models, Indic Script Processing  
-**Target:** Top-Tier Conference Publication (CVPR/ICCV/NeurIPS/ICDAR)
+**Student:** PAMIDI ROHIT 
+**Institution:** IIITS
+**ROLL** S20230030398
+**Department:** AI & DS  
+**Project Domain:**  VARIATIONAL AUTOENCODERS FOR TELUGU CHARACTER GENERATION 
 
 ---
 
@@ -1162,21 +1162,7 @@ H₁: μ_Pothana ≠ μ_Lohit
 4. ✅ **Public benchmark** - dataset + code release
 5. ✅ **Practical guidelines** - best practices for Indic VAEs
 
-### 10.2 Expected Conference Acceptance
 
-**Target Venues:**
-- CVPR, ICCV, ECCV (Computer Vision)
-- NeurIPS, ICML, ICLR (Machine Learning)
-- ICDAR, DAS (Document Analysis)
-- Regional: AAAI India
-
-**Acceptance Strategy:**
-- Novel comparative methodology
-- Rigorous experimental design
-- Clear, actionable insights
-- Open-source release
-
----
 
 <div style="page-break-after: always;"></div>
 
@@ -1195,21 +1181,6 @@ H₁: μ_Pothana ≠ μ_Lohit
 | 10 | Visualization | Figures Ready |
 | 11-12 | Writing | Paper Submission |
 
----
-
-## 12. REFERENCES <a name="references"></a>
-
-**VAE Foundations:**
-1. Kingma & Welling (2013): Auto-Encoding Variational Bayes
-2. Higgins et al. (2017): β-VAE: Learning Basic Visual Concepts
-
-**Recent Advances:**
-3. Beta-Sigma VAE (2024): Improved control over disentanglement
-4. Scale-VAE (2024): Posterior collapse prevention
-
-**Indic Scripts:**
-5. Telugu OCR with CNNs (2024): VGG16, ResNet
-6. Devanagari Recognition Review (2024)
 
 ---
 
@@ -1217,13 +1188,4 @@ H₁: μ_Pothana ≠ μ_Lohit
 
 ---
 
-**For PDF generation, use:**
-```bash
-pandoc BTP_Project_Documentation.md -o BTP_Project_Documentation.pdf \
-  --pdf-engine=xelatex \
-  --toc \
-  --toc-depth=2 \
-  -V geometry:margin=1in \
-  -V linkcolor:blue \
-  -V fontsize=11pt
-```
+
