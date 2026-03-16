@@ -1,0 +1,12 @@
+{
+  "latent_centroid_distance": 1.3830355405807495,
+  "nearest_centroid_source_accuracy": 1.0,
+  "source0_centroid": [
+    -0.33255335688591003,
+    -0.2468920201063156
+  ],
+  "source1_centroid": [
+    1.044032335281372,
+    -0.3803052306175232
+  ]
+}
