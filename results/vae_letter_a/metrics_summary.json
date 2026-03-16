@@ -1,0 +1,28 @@
+{
+  "config": {
+    "dataset_root": "dataset_Rohit",
+    "image_size": 64,
+    "batch_size": 16,
+    "latent_dim": 2,
+    "epochs": 120,
+    "lr": 0.001,
+    "beta_max": 1.0,
+    "kl_warmup_epochs": 20,
+    "seed": 42
+  },
+  "split_sizes": {
+    "train": 112,
+    "val": 24,
+    "test": 24
+  },
+  "test_metrics": {
+    "bce": 227.06959533691406,
+    "kld": 7.093115568161011,
+    "total": 234.16271209716797,
+    "mse": 0.003054989482431362,
+    "psnr": 26.029559057204242,
+    "ssim": 0.9802900886945954
+  },
+  "best_checkpoint_epoch": 119,
+  "best_val_total": 242.27610778808594
+}
