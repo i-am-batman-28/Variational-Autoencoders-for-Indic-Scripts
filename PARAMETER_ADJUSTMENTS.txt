@@ -1,0 +1,84 @@
+================================================================================
+PARAMETER ADJUSTMENTS FOR LARGER CHARACTER SIZE
+================================================================================
+
+PROBLEM IDENTIFIED:
+With characters now filling ~80% of the 128×128 canvas (~102px width),
+the original variation parameters were too subtle and not proportional.
+
+================================================================================
+ADJUSTMENTS MADE ✅
+================================================================================
+
+1️⃣ TRANSLATION (apply_translation)
+   BEFORE: max_offset = 2 pixels (±2px)
+   AFTER:  max_offset = 3 pixels (±3px)
+   REASON: Characters are ~50% larger, so translation should scale proportionally
+           ±3px on a 102px character ≈ same visual impact as ±2px on smaller char
+
+2️⃣ STROKE WIDTH (apply_stroke_width)
+   BEFORE: kernel_size = 1 (3×3 kernel)
+   AFTER:  kernel_size = 2 (5×5 kernel)
+   REASON: Larger characters need more visible stroke variation
+           kernel_size=2 creates more noticeable thickening/thinning effect
+           Better simulates printer/ink variation on larger printed characters
+
+3️⃣ SCALING (apply_scaling)
+   BEFORE: scale_range = (0.95, 1.05) → 5% variation
+   AFTER:  scale_range = (0.94, 1.06) → 6% variation
+   REASON: Slightly wider range compensates for larger character size
+           Still maintains "bad print" realism (not distortion)
+
+4️⃣ ROTATION (apply_rotation)
+   UNCHANGED: angle_range = (-3, 3) degrees
+   REASON: Degrees are angle-based, not pixel-based
+           ±3° is appropriate regardless of character size
+
+5️⃣ CONTRAST (apply_contrast)
+   UNCHANGED: factor_range = (0.95, 1.05) → 5% variation
+   REASON: Relative adjustment - works the same at any size
+
+6️⃣ GAMMA (apply_gamma)
+   UNCHANGED: gamma_range = (0.95, 1.05) → 5% variation
+   REASON: Relative adjustment - works the same at any size
+
+================================================================================
+VISUAL IMPACT
+================================================================================
+
+✅ Translation: More noticeable position shifts (realistic for larger prints)
+✅ Stroke Width: More visible thickening/thinning (better printer simulation)
+✅ Scaling: Slightly more size variation (still realistic)
+✅ Rotation: Same visual impact (appropriate)
+✅ Contrast/Gamma: Same visual impact (appropriate)
+
+================================================================================
+PROPORTIONALITY RATIONALE
+================================================================================
+
+Character Size Increase:
+  - Before: ~50-60px width (estimated)
+  - After:  ~102px width (80% of 128px)
+  - Increase: ~70-100% larger
+
+Parameter Scaling:
+  - Translation: 2px → 3px (50% increase) ✅ Proportional
+  - Stroke Kernel: 1 → 2 (100% increase) ✅ Proportional
+  - Scaling Range: 5% → 6% (20% increase) ✅ Conservative
+
+================================================================================
+EXPECTED RESULTS
+================================================================================
+
+After these adjustments:
+  ✅ Stroke variations will be more visible and consistent
+  ✅ Translation shifts will be proportional to character size
+  ✅ All variations maintain "bad print" realism (not distortion)
+  ✅ Better balance between variation visibility and realism
+
+================================================================================
+READY TO REGENERATE ✅
+================================================================================
+
+All parameters are now calibrated for the larger character size.
+Run: venv/bin/python generate_printed_dataset.py

@@ -1,0 +1,85 @@
+{
+  "config": {
+    "dataset_root": "dataset_Rohit",
+    "font_names": [
+      "lohit_telugu"
+    ],
+    "letter_names": [
+      "a"
+    ],
+    "point_sizes": [
+      "10pt",
+      "14pt",
+      "18pt",
+      "22pt"
+    ],
+    "image_size": 128,
+    "batch_size": 16,
+    "latent_dim": 2,
+    "lr": 0.001,
+    "epochs": 150,
+    "early_stopping_patience": 25,
+    "beta_max": 1.0,
+    "kl_warmup_epochs": 25,
+    "grad_clip_norm": 5.0,
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "seed": 42,
+    "base_depth": 4,
+    "depth_variants": [
+      5,
+      6
+    ],
+    "aux_hidden": 64,
+    "aux_lr": 0.001,
+    "aux_epochs": 200,
+    "aux_patience": 30,
+    "aux_dropout": 0.3,
+    "output_dir": "results/exp1_single_font_single_letter",
+    "dpi": 300,
+    "recon_log_interval": 10
+  },
+  "split": {
+    "train": 56,
+    "val": 12,
+    "test": 12
+  },
+  "best_epoch": 41,
+  "param_count": 1494085,
+  "test_metrics": {
+    "global": {
+      "bce": 644.8932495117188,
+      "kld": 42.57065963745117,
+      "total": 687.4639282226562,
+      "mse": 0.004106577835045755,
+      "psnr": 24.770710401779457,
+      "ssim": 0.9751378010981541
+    },
+    "per_class": {
+      "10pt": {
+        "mse": 0.0036937336747845015,
+        "psnr": 24.61174311125391,
+        "ssim": 0.9772407947496281,
+        "count": 3
+      },
+      "14pt": {
+        "mse": 0.007217916427180171,
+        "psnr": 22.926495454809526,
+        "ssim": 0.9568131104226829,
+        "count": 3
+      },
+      "18pt": {
+        "mse": 0.002264459151774645,
+        "psnr": 26.470556747855664,
+        "ssim": 0.9862341408410682,
+        "count": 3
+      },
+      "22pt": {
+        "mse": 0.0032502020864437022,
+        "psnr": 25.074046293198723,
+        "ssim": 0.9802631583792372,
+        "count": 3
+      }
+    }
+  }
+}

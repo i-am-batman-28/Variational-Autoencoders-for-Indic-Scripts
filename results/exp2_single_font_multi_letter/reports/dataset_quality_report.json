@@ -1,0 +1,119 @@
+{
+  "scope": {
+    "fonts": [
+      "lohit_telugu"
+    ],
+    "letters": [
+      "a",
+      "aa",
+      "i",
+      "ii",
+      "u",
+      "uu",
+      "ri",
+      "e",
+      "ai",
+      "o",
+      "au",
+      "am",
+      "aha"
+    ],
+    "point_sizes": [
+      "10pt",
+      "14pt",
+      "18pt",
+      "22pt"
+    ],
+    "size": "128x128"
+  },
+  "integrity": {
+    "total": 1040,
+    "corrupt": 0,
+    "modes": {
+      "RGB": 1040
+    },
+    "resolutions": {
+      "128x128": 1040
+    },
+    "duplicates": 0,
+    "unique": 1040
+  },
+  "counts_by_group": {
+    "lohit_telugu/a/10pt": 20,
+    "lohit_telugu/a/14pt": 20,
+    "lohit_telugu/a/18pt": 20,
+    "lohit_telugu/a/22pt": 20,
+    "lohit_telugu/aa/10pt": 20,
+    "lohit_telugu/aa/14pt": 20,
+    "lohit_telugu/aa/18pt": 20,
+    "lohit_telugu/aa/22pt": 20,
+    "lohit_telugu/aha/10pt": 20,
+    "lohit_telugu/aha/14pt": 20,
+    "lohit_telugu/aha/18pt": 20,
+    "lohit_telugu/aha/22pt": 20,
+    "lohit_telugu/ai/10pt": 20,
+    "lohit_telugu/ai/14pt": 20,
+    "lohit_telugu/ai/18pt": 20,
+    "lohit_telugu/ai/22pt": 20,
+    "lohit_telugu/am/10pt": 20,
+    "lohit_telugu/am/14pt": 20,
+    "lohit_telugu/am/18pt": 20,
+    "lohit_telugu/am/22pt": 20,
+    "lohit_telugu/au/10pt": 20,
+    "lohit_telugu/au/14pt": 20,
+    "lohit_telugu/au/18pt": 20,
+    "lohit_telugu/au/22pt": 20,
+    "lohit_telugu/e/10pt": 20,
+    "lohit_telugu/e/14pt": 20,
+    "lohit_telugu/e/18pt": 20,
+    "lohit_telugu/e/22pt": 20,
+    "lohit_telugu/i/10pt": 20,
+    "lohit_telugu/i/14pt": 20,
+    "lohit_telugu/i/18pt": 20,
+    "lohit_telugu/i/22pt": 20,
+    "lohit_telugu/ii/10pt": 20,
+    "lohit_telugu/ii/14pt": 20,
+    "lohit_telugu/ii/18pt": 20,
+    "lohit_telugu/ii/22pt": 20,
+    "lohit_telugu/o/10pt": 20,
+    "lohit_telugu/o/14pt": 20,
+    "lohit_telugu/o/18pt": 20,
+    "lohit_telugu/o/22pt": 20,
+    "lohit_telugu/ri/10pt": 20,
+    "lohit_telugu/ri/14pt": 20,
+    "lohit_telugu/ri/18pt": 20,
+    "lohit_telugu/ri/22pt": 20,
+    "lohit_telugu/u/10pt": 20,
+    "lohit_telugu/u/14pt": 20,
+    "lohit_telugu/u/18pt": 20,
+    "lohit_telugu/u/22pt": 20,
+    "lohit_telugu/uu/10pt": 20,
+    "lohit_telugu/uu/14pt": 20,
+    "lohit_telugu/uu/18pt": 20,
+    "lohit_telugu/uu/22pt": 20
+  },
+  "pixel_stats": {
+    "intensity_mean": {
+      "count": 1040,
+      "mean": 0.8804053008556366,
+      "std": 0.031959846624842275,
+      "min": 0.7897626161575317,
+      "max": 0.9402755498886108
+    },
+    "non_white": {
+      "count": 1040,
+      "mean": 0.1372628432053786,
+      "std": 0.036627089737469996,
+      "min": 0.06982421875,
+      "max": 0.23480224609375
+    },
+    "sharpness": {
+      "count": 1040,
+      "mean": 2895.9466580904445,
+      "std": 755.1005367146428,
+      "min": 1697.6083984375,
+      "max": 4228.72998046875
+    }
+  },
+  "duplicate_groups": []
+}

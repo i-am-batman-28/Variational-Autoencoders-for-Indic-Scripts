@@ -61,6 +61,7 @@ class ExperimentConfig:
     val_ratio: float = 0.15
     seed: int = 42
     num_workers: int = 0
+    recon_log_interval: int = 10  # save val recon grid every N epochs (0 = off)
 
 
 class GlyphDataset(Dataset):
@@ -97,32 +98,43 @@ class GlyphDataset(Dataset):
 
 
 class ConvVAE(nn.Module):
-    def __init__(self, latent_dim: int = 2) -> None:
+    """Conv VAE that supports 64x64 or 128x128 via encoder_spatial = image_size // 16."""
+
+    def __init__(self, latent_dim: int = 2, image_size: int = 64) -> None:
         super().__init__()
         self.latent_dim = latent_dim
+        self.image_size = image_size
+        self.encoder_spatial = image_size // 16  # 4 for 64, 8 for 128
 
         self.encoder = nn.Sequential(
             nn.Conv2d(1, 32, kernel_size=4, stride=2, padding=1),
+            nn.BatchNorm2d(32),
             nn.ReLU(inplace=True),
             nn.Conv2d(32, 64, kernel_size=4, stride=2, padding=1),
+            nn.BatchNorm2d(64),
             nn.ReLU(inplace=True),
             nn.Conv2d(64, 128, kernel_size=4, stride=2, padding=1),
+            nn.BatchNorm2d(128),
             nn.ReLU(inplace=True),
             nn.Conv2d(128, 256, kernel_size=4, stride=2, padding=1),
+            nn.BatchNorm2d(256),
             nn.ReLU(inplace=True),
         )
 
-        self.encoder_out_dim = 256 * 4 * 4
+        self.encoder_out_dim = 256 * self.encoder_spatial * self.encoder_spatial
         self.fc_mu = nn.Linear(self.encoder_out_dim, latent_dim)
         self.fc_logvar = nn.Linear(self.encoder_out_dim, latent_dim)
 
         self.fc_decode = nn.Linear(latent_dim, self.encoder_out_dim)
         self.decoder = nn.Sequential(
             nn.ConvTranspose2d(256, 128, kernel_size=4, stride=2, padding=1),
+            nn.BatchNorm2d(128),
             nn.ReLU(inplace=True),
             nn.ConvTranspose2d(128, 64, kernel_size=4, stride=2, padding=1),
+            nn.BatchNorm2d(64),
             nn.ReLU(inplace=True),
             nn.ConvTranspose2d(64, 32, kernel_size=4, stride=2, padding=1),
+            nn.BatchNorm2d(32),
             nn.ReLU(inplace=True),
             nn.ConvTranspose2d(32, 1, kernel_size=4, stride=2, padding=1),
             nn.Sigmoid(),
@@ -143,7 +155,7 @@ class ConvVAE(nn.Module):
 
     def decode(self, z: torch.Tensor) -> torch.Tensor:
         h = self.fc_decode(z)
-        h = h.view(-1, 256, 4, 4)
+        h = h.view(-1, 256, self.encoder_spatial, self.encoder_spatial)
         return self.decoder(h)
 
     def forward(self, x: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
@@ -506,6 +518,9 @@ def train_vae(
     checkpoint_path: Path,
 ) -> dict[str, list[float]]:
     optimizer = torch.optim.Adam(model.parameters(), lr=config.lr)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+        optimizer, T_max=config.epochs, eta_min=1e-5
+    )
 
     history: dict[str, list[float]] = {
         "train_bce": [],
@@ -586,6 +601,14 @@ def train_vae(
             )
         else:
             bad_epochs += 1
+
+        if config.recon_log_interval > 0 and (epoch + 1) % config.recon_log_interval == 0:
+            recon_path = config.output_dir / f"recon_epoch_{epoch + 1:03d}.png"
+            model.eval()
+            save_reconstructions(model, val_loader, device, recon_path, max_items=10)
+            model.train()
+
+        scheduler.step()
 
         if bad_epochs >= config.early_stopping_patience:
             print(
@@ -815,9 +838,10 @@ def save_latent_traversal_grid(
     zmax: float = 3.0,
 ) -> None:
     model.eval()
+    out_size = getattr(model, "image_size", 64)
 
     values = np.linspace(zmin, zmax, grid_size, dtype=np.float32)
-    canvas = np.zeros((grid_size * 64, grid_size * 64), dtype=np.float32)
+    canvas = np.zeros((grid_size * out_size, grid_size * out_size), dtype=np.float32)
 
     with torch.no_grad():
         for iy, zy in enumerate(values):
@@ -828,9 +852,9 @@ def save_latent_traversal_grid(
                     z[0, 1] = float(zy)
 
                 decoded = model.decode(z).detach().cpu().numpy()[0, 0]
-                y0 = iy * 64
-                x0 = ix * 64
-                canvas[y0 : y0 + 64, x0 : x0 + 64] = decoded
+                y0 = iy * out_size
+                x0 = ix * out_size
+                canvas[y0 : y0 + out_size, x0 : x0 + out_size] = decoded
 
     plt.figure(figsize=(8, 8))
     plt.imshow(canvas, cmap="gray", vmin=0.0, vmax=1.0)
@@ -914,6 +938,12 @@ def make_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--beta-max", type=float, default=1.0)
     parser.add_argument("--kl-warmup-epochs", type=int, default=20)
     parser.add_argument("--patience", type=int, default=20)
+    parser.add_argument(
+        "--recon-log-interval",
+        type=int,
+        default=10,
+        help="Save validation recon grid every N epochs (0=off)",
+    )
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument(
         "--reuse-checkpoint",
@@ -939,6 +969,7 @@ def main() -> None:
         beta_max=args.beta_max,
         kl_warmup_epochs=args.kl_warmup_epochs,
         seed=args.seed,
+        recon_log_interval=args.recon_log_interval,
     )
 
     set_seed(config.seed)
@@ -1007,7 +1038,7 @@ def main() -> None:
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
 
-    model = ConvVAE(latent_dim=config.latent_dim).to(device)
+    model = ConvVAE(latent_dim=config.latent_dim, image_size=config.image_size).to(device)
     ckpt_path = model_dir / "best_vae_letter_a.pt"
 
     history: dict[str, list[float]] = {
@@ -1079,6 +1110,7 @@ def main() -> None:
     metrics_payload = {
         "config": {
             "dataset_root": str(config.dataset_root),
+            "output_dir": str(config.output_dir),
             "image_size": config.image_size,
             "batch_size": config.batch_size,
             "latent_dim": config.latent_dim,
@@ -1086,7 +1118,11 @@ def main() -> None:
             "lr": config.lr,
             "beta_max": config.beta_max,
             "kl_warmup_epochs": config.kl_warmup_epochs,
+            "early_stopping_patience": config.early_stopping_patience,
+            "train_ratio": config.train_ratio,
+            "val_ratio": config.val_ratio,
             "seed": config.seed,
+            "recon_log_interval": config.recon_log_interval,
         },
         "split_sizes": {
             "train": len(train_records),

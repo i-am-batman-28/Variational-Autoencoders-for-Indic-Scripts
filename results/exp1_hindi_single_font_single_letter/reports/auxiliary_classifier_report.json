@@ -1,0 +1,67 @@
+{
+  "best_val_accuracy": 0.4166666567325592,
+  "per_head": {
+    "point_size": {
+      "accuracy": 0.25,
+      "class_names": [
+        "10pt",
+        "14pt",
+        "18pt",
+        "22pt"
+      ],
+      "per_class": {
+        "10pt": {
+          "precision": 0.5,
+          "recall": 0.3333333333333333,
+          "f1": 0.4,
+          "support": 3
+        },
+        "14pt": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "18pt": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "22pt": {
+          "precision": 0.2,
+          "recall": 0.6666666666666666,
+          "f1": 0.3076923076923077,
+          "support": 3
+        }
+      },
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          1,
+          0,
+          0,
+          2
+        ]
+      ],
+      "report": "              precision    recall  f1-score   support\n\n        10pt       0.50      0.33      0.40         3\n        14pt       0.00      0.00      0.00         3\n        18pt       0.00      0.00      0.00         3\n        22pt       0.20      0.67      0.31         3\n\n    accuracy                           0.25        12\n   macro avg       0.17      0.25      0.18        12\nweighted avg       0.18      0.25      0.18        12\n"
+    }
+  }
+}

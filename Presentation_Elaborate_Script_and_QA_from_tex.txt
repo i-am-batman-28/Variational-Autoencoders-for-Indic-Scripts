@@ -1,0 +1,429 @@
+================================================================================
+PRESENTATION — ELABORATE SPEAKING SCRIPT & Q&A
+Based on ppt_professional.tex (Beamer slides)
+Slides: Scope of Work | Methodology | Dataset Collection | Evaluation Strategy
+================================================================================
+This document is the single reference for what to SAY and how to ANSWER questions,
+using only the content from ppt_professional.tex. Everything is explained in detail.
+================================================================================
+
+
+################################################################################
+################################################################################
+PART 1 — SLIDE CONTENT FROM ppt_professional.tex (REFERENCE)
+################################################################################
+################################################################################
+
+--------------------------------------------------------------------------------
+SLIDE 7 (SECTION: Scope) — "Scope of Work"
+--------------------------------------------------------------------------------
+Source: \begin{frame}{Scope of Work} ... \end{frame}
+
+TABLE IN THE SLIDE:
+  Parameter          | Specification
+  -------------------|----------------------------------------------------------
+  Scripts            | Telugu (Dravidian), Hindi (Devanagari)
+  Characters         | 13 vowels per script
+  Font Type          | Computer-rendered (printed)
+  Fonts              | Telugu: Pothana2000, Lohit Telugu
+                     | Hindi: Akshar Unicode, Mangal
+  Image Resolution   | 128 × 128 pixels (RGB)
+  Dataset Size       | 2,080 images per script
+  Variations         | 4 sizes × 20 samples (rotation, scale, stroke)
+
+FOOTNOTE IN SLIDE:
+  Limitation: Printed fonts only; handwritten characters reserved for future work
+
+--------------------------------------------------------------------------------
+SLIDE 9 (SECTION: Methodology) — "Methodology: Pipeline Overview"
+--------------------------------------------------------------------------------
+Source: \begin{frame}{Methodology: Pipeline Overview} ... \end{frame}
+
+DIAGRAM:
+  [Dataset Collection] → [Preprocessing] → [VAE]
+
+KEYPOINT BOX:
+  Systematic workflow from data collection through preprocessing to VAE model
+
+--------------------------------------------------------------------------------
+SLIDE 10 — "Dataset Collection"
+--------------------------------------------------------------------------------
+Source: \begin{frame}{Dataset Collection} ... \end{frame}
+
+Font Rendering:
+  • PIL/Pillow at 300 DPI
+  • Unicode character mapping
+  • White background, black text
+
+Affine Transformations:
+  • Size: 10pt, 14pt, 18pt, 22pt
+  • Rotation: ±3°
+  • Translation: ±3 pixels
+  • Scaling: 94%–106%
+  • Stroke: Erosion/dilation
+
+Quality Assessment:
+  • SHA-256 hash deduplication
+  • Metadata tracking (JSON)
+  • Automated validation suite
+
+KEYPOINT:
+  Result: 4,160 images (2,080 per script) with balanced class distribution
+
+--------------------------------------------------------------------------------
+SLIDE 11 — "Dataset Sample: 9 Variations of 'a' Vowel"
+--------------------------------------------------------------------------------
+Source: \begin{frame}{Dataset Sample: 9 Variations of 'a' Vowel} ... \end{frame}
+
+  Hindi - Akshar Unicode (अ): 9 image variations (a_14pt_01 ... a_14pt_09)
+  Telugu - Pothana2000 (ఓ): 9 image variations (o_14pt_01 ... o_14pt_09)
+
+KEYPOINT:
+  Each variation includes systematic transformations: rotation (±3°), translation
+  (±3px), scaling (94%–106%), stroke modifications, and contrast adjustments.
+
+--------------------------------------------------------------------------------
+SLIDE 12 — "Dataset Sample: Multi-Font Vowel Characters"
+--------------------------------------------------------------------------------
+Source: \begin{frame}{Dataset Sample: Multi-Font Vowel Characters} ... \end{frame}
+
+  Akshar Unicode: a (अ), ai (ऐ), o (ओ)  |  Mangal: e (ए), au (औ)
+  Pothana2000: ai (ఐ), o (ఓ), au (ఔ)  |  Lohit Telugu: e (ఏ), i (ఇ)
+
+KEYPOINT:
+  Demonstrates font-specific rendering differences across 4 fonts (2 per script)
+
+--------------------------------------------------------------------------------
+SLIDE 15 (SECTION: Evaluation) — "Evaluation Strategy"
+--------------------------------------------------------------------------------
+Source: \begin{frame}{Evaluation Strategy} ... \end{frame}
+
+Objective Analysis:
+  • Reconstruction Quality: SSIM, MSE, PSNR metrics
+  • Feature Distance: Inception Score, FID
+  • Latent Space Metrics: KL divergence, class separability
+  • Pixel-level Accuracy: L1/L2 reconstruction loss
+  • Structural Similarity: Edge detection comparison
+
+Subjective Analysis:
+  • Human Evaluation: Expert linguist assessment
+  • Visual Quality: Native script readers evaluation
+  • Naturalness Scoring: Character recognizability (1–5 scale)
+  • Morphological Correctness: Stroke smoothness judgment
+  • User Studies: Generated vs. real discrimination test
+
+
+################################################################################
+################################################################################
+PART 2 — ELABORATE SPEAKING SCRIPT (WHAT TO SAY, IN DETAIL)
+################################################################################
+################################################################################
+
+--------------------------------------------------------------------------------
+SLIDE: SCOPE OF WORK
+--------------------------------------------------------------------------------
+
+[OPENING — 1–2 sentences]
+"Next I will define the scope of our work. We have kept the scope precise so that we can deliver a complete pipeline and a reproducible dataset within the thesis timeline."
+
+[MAIN BODY — explain each row of the table]
+
+"First, the scripts. We consider two Indic scripts: Telugu, which belongs to the Dravidian family, and Hindi in Devanagari, which belongs to the Indo-Aryan family. Both use an akshara-based writing system.
+
+Second, the character set. We restrict ourselves to the 13 vowels — swaras — in each script. These are the same phonological units in both scripts: a, aa, i, ii, u, uu, ri, e, ai, o, au, am, and aha. We do not include consonants or conjuncts in this phase.
+
+Third, font type. All our data is computer-rendered, that is, printed font output. We do not use handwritten data in the current scope; that is explicitly reserved for future work.
+
+Fourth, the fonts. For Telugu we use two fonts: Pothana2000 and Lohit Telugu. For Hindi we use Akshar Unicode and Mangal. So we have two fonts per script, which gives us font-specific variation and allows us to study how the model behaves across different typefaces.
+
+Fifth, image resolution. Every image is 128 by 128 pixels, RGB. We use a fixed resolution so that the VAE has a consistent input size and so that training is manageable.
+
+Sixth, dataset size. We generate 2,080 images per script. So in total we have 4,160 images across both scripts.
+
+Seventh, variations. For each alphabet–font combination we use four font sizes — 10, 14, 18, and 22 point — and for each size we generate 20 samples. Those 20 samples are created using controlled variations: rotation, scaling, stroke modifications, and the other affine and stylistic transforms we will see on the dataset slide. So the scope is: two scripts, 13 vowels each, two fonts per script, printed only, 128 by 128, 2,080 images per script, with 4 sizes and 20 samples per size and variation applied systematically."
+
+[CLOSING — limitation]
+"We state the limitation clearly on the slide: printed fonts only; handwritten characters are reserved for future work. This keeps the current phase well-defined and reproducible."
+
+
+--------------------------------------------------------------------------------
+SLIDE: METHODOLOGY — PIPELINE OVERVIEW
+--------------------------------------------------------------------------------
+
+[OPENING]
+"Our methodology is a three-stage pipeline: Dataset Collection, Preprocessing, and the VAE model. The slide shows this as a simple flow from left to right."
+
+[STAGE 1 — Dataset Collection]
+"The first stage is dataset collection. We do not use an existing handwritten corpus here. We generate our own printed character dataset using the scope we just defined: two scripts, 13 vowels, two fonts per script, four sizes, 20 samples per alphabet–font–size combination. The generation is fully automated: we render characters with PIL/Pillow at 300 DPI, apply affine and stroke variations, and save images and metadata. This gives us 4,160 images with known labels and variation types. So when we say 'dataset collection,' we mean this entire automated generation and curation process."
+
+[STAGE 2 — Preprocessing]
+"The second stage is preprocessing. The raw output of the generator is already 128 by 128 and character-centric, but for training we will resize if needed, normalize pixel values — typically to [0, 1] or zero-mean unit variance — and optionally convert to grayscale depending on the model. We also maintain a proper train–validation split so that we can tune hyperparameters and report validation metrics. So preprocessing is everything between the saved PNGs and the tensors we feed to the network."
+
+[STAGE 3 — VAE]
+"The third stage is the VAE itself. The encoder takes a 128 by 128 image and outputs parameters of a Gaussian in latent space — mean and variance. We sample from that distribution using the reparameterization trick, and the decoder maps the latent vector back to an image. The loss is reconstruction loss plus beta times KL divergence. Training this end-to-end gives us a model that can reconstruct inputs and, by sampling from the prior, generate new character images. So the pipeline is: collect and generate data, preprocess it, then train the VAE."
+
+[CLOSING — keypoint]
+"The key point we want to convey is that this is a systematic workflow: from data collection through preprocessing to the VAE model. There are no ad-hoc steps; each stage has a clear role and output."
+
+
+--------------------------------------------------------------------------------
+SLIDE: DATASET COLLECTION (DETAILED)
+--------------------------------------------------------------------------------
+
+[OPENING]
+"Now I will go into how we actually collect and build the dataset. Everything is automated and reproducible."
+
+[FONT RENDERING]
+"Font rendering is done with PIL/Pillow. We render at 300 DPI so that the glyphs are sharp before we apply any transforms or resize. We use Unicode code points for each of the 13 vowels — for example U+0905 for Devanagari 'a' and U+0C05 for Telugu 'a' — so the mapping is exact and script-correct. The canvas is white background with black text, which gives high contrast and makes it easy to crop and binarize if needed."
+
+[AFFINE TRANSFORMATIONS]
+"For affine transformations we use four font sizes: 10, 14, 18, and 22 point. These cover small to large print. For each rendered character we apply random but bounded transforms: rotation up to plus or minus 3 degrees, translation up to plus or minus 3 pixels, and scaling between 94 and 106 percent. We also apply stroke modifications using morphological erosion and dilation — this simulates thicker or thinner strokes, like different ink or print quality. In the implementation we also use contrast and gamma adjustments within a small range. Together these simulate real-world variation in printed text without distorting the glyph. We do not use Gaussian noise or blur in the final design because they tend to distort the character shape and hurt the latent space."
+
+[QUALITY ASSESSMENT]
+"For quality we do three things. First, we use a hash — in the slide we say SHA-256; in the code we use an MD5 of the image bytes — to detect duplicates. So for each alphabet–font–size we ensure that the 20 samples are distinct. Second, we store metadata in JSON: font name, alphabet, Unicode character, font size, variation type, hash, timestamp, and so on. That gives us full traceability and lets us filter or analyse by any of these fields. Third, we have an automated validation suite that checks image dimensions, folder structure, and basic quality metrics. So the dataset is not only large but also validated and documented."
+
+[RESULT]
+"The result is 4,160 images — 2,080 per script — with a balanced class distribution: every alphabet and every font-size combination has exactly 20 samples. So when we say 'dataset collection' in the methodology, this is the concrete process and output we mean."
+
+
+--------------------------------------------------------------------------------
+SLIDE: DATASET SAMPLE — 9 VARIATIONS
+--------------------------------------------------------------------------------
+
+[OPENING]
+"This slide shows nine variations of a single vowel for each script, so you can see what 'controlled variation' means in practice."
+
+[HINDI — AKSHAR]
+"For Hindi we show the vowel 'a' — अ — in Akshar Unicode. The nine images are from the same alphabet–font–size folder, say 14pt. One is the clean base; the others have one or more of rotation, translation, scaling, stroke modification, or contrast adjustment applied. So you see the same character with small, realistic differences — like slightly rotated or shifted or slightly thicker strokes — but never a different character or a distorted glyph."
+
+[TELUGU — POTHANA]
+"For Telugu we show the vowel 'o' — ఓ — in Pothana2000. Again, nine samples from the same category. The variation types are the same: rotation up to ±3°, translation ±3 pixels, scaling between 94 and 106%, stroke modifications, and contrast adjustments. So both scripts are treated the same way in terms of pipeline and variation design."
+
+[KEYPOINT TO STATE]
+"The takeaway is that each variation is systematic: we are not adding random noise or blur; we are only applying these geometric and stylistic transforms. That keeps the data suitable for learning a clean latent space and for fair evaluation later."
+
+
+--------------------------------------------------------------------------------
+SLIDE: DATASET SAMPLE — MULTI-FONT
+--------------------------------------------------------------------------------
+
+[OPENING]
+"Here we show that we have four different fonts — two for Hindi, two for Telugu — and that the same vowel can look different across fonts."
+
+[CONTENT]
+"For Hindi we show Akshar Unicode with a, ai, and o — अ, ऐ, ओ — and Mangal with e and au — ए, औ. For Telugu we show Pothana2000 with ai, o, and au — ఐ, ఓ, ఔ — and Lohit Telugu with e and i — ఏ, ఇ. So you see that the same phonological vowel has different glyph shapes in different fonts. That is intentional: we want the VAE to see multiple typefaces so that the latent space can capture character identity across font style. The key point on the slide is that this demonstrates font-specific rendering differences across all four fonts, two per script."
+
+
+--------------------------------------------------------------------------------
+SLIDE: EVALUATION STRATEGY
+--------------------------------------------------------------------------------
+
+[OPENING]
+"Our evaluation strategy is split into objective — numeric metrics — and subjective — human judgment. We use both because for Indic script generation, pixel-level metrics alone do not capture readability and morphological correctness."
+
+[OBJECTIVE ANALYSIS — explain each]
+"Under objective analysis we have five categories.
+
+First, reconstruction quality. We will report SSIM — structural similarity — MSE, and PSNR. These tell us how close the reconstructed image is to the input in terms of pixels and structure.
+
+Second, feature distance. We may use Inception Score and FID — Fréchet Inception Distance — if we use a pretrained feature extractor. These measure whether the distribution of generated images is close to the distribution of real data in feature space.
+
+Third, latent space metrics. We will monitor KL divergence during training to avoid posterior collapse. We will also evaluate class separability — for example whether a simple classifier on the latent codes can predict the vowel or font — to see if the latent space is structured.
+
+Fourth, pixel-level accuracy. We will report L1 and L2 reconstruction loss on the validation set. These are the standard losses used in training and are easy to compare across models.
+
+Fifth, structural similarity in a more geometric sense. We can compare edge maps or stroke structure between original and reconstructed images to see if the model preserves the shape of the character."
+
+[SUBJECTIVE ANALYSIS — explain each]
+"Under subjective analysis we have five types of human evaluation.
+
+First, human evaluation by an expert linguist. Someone familiar with the script can judge whether the generated character is a valid glyph and whether it is written correctly.
+
+Second, visual quality as judged by native script readers. We can show generated samples and ask for a simple good/bad or a score.
+
+Third, naturalness scoring on a 1-to-5 scale. We ask how natural or recognisable the character looks. This complements the objective metrics.
+
+Fourth, morphological correctness. We ask evaluators to judge stroke smoothness and whether diacritics or components are in the right place. This is especially important for Indic scripts.
+
+Fifth, user studies. We can run a discrimination test: present a mix of real and generated images and ask participants to label which is which. If they cannot tell, the generated images are closer to real. We may also do a preference test: which of two generated samples is better."
+
+[CLOSING]
+"So our evaluation strategy is not only MSE and SSIM but also latent-space analysis and human evaluation. We will report both objective and subjective results in the thesis and in the final presentation."
+
+
+################################################################################
+################################################################################
+PART 3 — ELABORATE Q&A (EXPECTED QUESTIONS WITH FULL ANSWERS)
+################################################################################
+################################################################################
+
+--------------------------------------------------------------------------------
+CATEGORY A: SCOPE AND DESIGN (from Scope of Work slide)
+--------------------------------------------------------------------------------
+
+Q1. Why did you choose only 13 vowels and not consonants or full alphabet?
+
+A: We chose the 13 vowels — swaras — for three reasons. First, they are the same phonological set in both Telugu and Hindi, so we can compare the two scripts on an equal footing. Second, vowels have relatively simpler shape than consonants and conjuncts; they have fewer strokes and no conjunct forms, so they are a good baseline to validate our pipeline and VAE design. Third, the thesis timeline and scope require a well-defined, completable task. Once we have a working VAE and evaluation on vowels, we can extend to consonants and conjuncts in future work. So the 13 vowels are a deliberate, scoped choice for this phase.
+
+---
+
+Q2. Why only printed (computer-rendered) and not handwritten data?
+
+A: The slide explicitly states that printed fonts only are in scope and handwritten characters are reserved for future work. There are two reasons. First, printed data is fully under our control: we know the font, size, and exact variation applied to each image. That makes the dataset reproducible and makes it easier to interpret what the VAE has learned. Second, handwritten data is noisier and requires either collecting new data or curating from existing datasets like IIIT-Indic-HW-Words, which is a larger effort. Our plan is to first get a strong result on printed data — pipeline, architecture, and evaluation — and then in future work do transfer learning or fine-tuning on handwritten data. So printed-only is a scope limitation that we state clearly and use to keep the current phase manageable.
+
+---
+
+Q3. Why exactly two fonts per script? Why not one or more than two?
+
+A: Two fonts per script give us font-specific variation without blowing up the dataset size. With one font we would not be able to study how the model generalises across typefaces; with many fonts the dataset and training would become much larger and the comparison less clear. With two fonts we can compare latent space or reconstruction quality font-wise — for example whether Pothana2000 is harder than Lohit Telugu — and we can report results per font as well as per script. So two fonts is a balance between diversity and focus.
+
+---
+
+Q4. Why 128×128 resolution? Would 64×64 or 256×256 be better?
+
+A: 128×128 is a standard choice for character-level images in the literature and in our pipeline. It is enough to preserve stroke detail and the shirorekha or rounded shapes of Indic characters, but it keeps the model size and training time manageable. 64×64 can lose fine detail; 256×256 would require more parameters and possibly more data. We fixed 128×128 in the scope so that all experiments use the same resolution; we can mention in future work that resolution could be ablated.
+
+---
+
+Q5. What does "4 sizes × 20 samples" mean in the Variations row?
+
+A: For each alphabet and each font we use four font sizes: 10, 14, 18, and 22 point. For each of those size settings we generate 20 different images. So for one alphabet and one font we have 4 × 20 = 80 images, and the 20 samples per size are created by applying different combinations of rotation, translation, scaling, stroke modification, and contrast/gamma. So "4 sizes × 20 samples" means 20 samples per (alphabet, font, size), and the variations are the transforms we apply to get those 20 distinct images.
+
+
+--------------------------------------------------------------------------------
+CATEGORY B: DATASET COLLECTION (from Dataset slides)
+--------------------------------------------------------------------------------
+
+Q6. What is SHA-256 hash deduplication and why do you use it?
+
+A: When we generate the 20 samples for each alphabet–font–size, we apply random variations. Sometimes by chance two different random choices can produce the same or nearly identical image. To ensure that all 20 samples are actually distinct we compute a hash of the final image — in the slide we say SHA-256; in the code we use an MD5 of the pixel bytes. Before saving a new sample we check whether that hash has already been seen for that (alphabet, font, size). If it has, we discard and regenerate. So we guarantee 20 unique images per combination. Deduplication is part of our quality assessment and is mentioned in the Dataset Collection slide.
+
+---
+
+Q7. Why 300 DPI for rendering when the final image is only 128×128?
+
+A: We render at 300 DPI so that the glyph is drawn at high resolution before we apply any affine transforms or resizing. That keeps edges sharp and avoids aliasing artefacts. After that we crop to the character and resize to 128×128. So 300 DPI is for the rendering stage only; the final image is 128×128. The high DPI ensures that when we downsample we do not lose important stroke detail.
+
+---
+
+Q8. What do you mean by "stroke: erosion/dilation"?
+
+A: Stroke modification is one of the affine-style transformations we apply. Erosion thins the strokes — we use a small morphological kernel and erode the black region. Dilation thickens the strokes. So we simulate slightly different pen or print thickness — like different ink density or printer quality — without changing the shape of the character. We use SciPy or similar for the morphological operations. This is listed under Affine Transformations on the Dataset Collection slide and is part of the "rotation, scale, stroke" mentioned in the Scope table.
+
+---
+
+Q9. What exactly is stored in the metadata JSON?
+
+A: For each image we store at least: which font was used, which alphabet (e.g. a, aa, i), the actual Unicode character, the font size in points, which variation or combination of variations was applied, the image hash for deduplication, the output size (128), and a timestamp. This allows us to filter by font or alphabet when building dataloaders, to reproduce the dataset, and to report statistics in the thesis. The slide says "Metadata tracking (JSON)" under Quality Assessment.
+
+---
+
+Q10. What does "balanced class distribution" mean in "4,160 images with balanced class distribution"?
+
+A: It means that every class — every (alphabet, font, size) combination — has exactly the same number of samples. We have 13 alphabets × 2 fonts × 4 sizes = 104 such combinations per script, and each has 20 images. So 104 × 20 = 2,080 per script and 4,160 total. No alphabet or font is over- or under-represented. That is important for training: the model sees each class equally often, and we can report per-class metrics fairly. So "balanced" refers to this uniform distribution across classes.
+
+
+--------------------------------------------------------------------------------
+CATEGORY C: METHODOLOGY (from Methodology slide)
+--------------------------------------------------------------------------------
+
+Q11. The methodology slide only shows three boxes: Dataset Collection, Preprocessing, VAE. What happens inside each?
+
+A: Dataset Collection is the full automated generation we described: render at 300 DPI, apply affine and stroke variations, deduplicate with hashes, save PNGs and metadata. Preprocessing is everything we do to those PNGs before training: load, resize if needed, normalize, optionally grayscale, and create train/validation splits and dataloaders. The VAE box is the model: encoder that outputs mean and variance, reparameterization sampling, decoder that reconstructs the image, and loss that combines reconstruction and KL divergence. So the three boxes are high-level; the details are in the Dataset Collection and Evaluation slides and in the implementation.
+
+---
+
+Q12. Why is preprocessing a separate stage? Can't you feed the images directly to the VAE?
+
+A: Preprocessing is separate because we want to keep data generation and model training as distinct steps. The generator outputs 128×128 PNGs; the trainer may need normalized tensors in [0,1], a specific train/val split, and maybe grayscale. Putting this in a separate preprocessing stage makes the pipeline clear and makes it easy to change normalization or split without regenerating the dataset. So preprocessing is the bridge between "saved dataset" and "model input."
+
+---
+
+Q13. What is the "systematic workflow" in the keypoint?
+
+A: It means that we do not have ad-hoc or manual steps. The workflow is defined and repeatable: first we collect data with a fixed procedure (fonts, sizes, variations, deduplication), then we preprocess with a fixed recipe (resize, normalize, split), then we train the VAE with a defined architecture and loss. So "systematic" means documented, automated, and reproducible from data collection through to the VAE model.
+
+
+--------------------------------------------------------------------------------
+CATEGORY D: EVALUATION (from Evaluation Strategy slide)
+--------------------------------------------------------------------------------
+
+Q14. Why use both objective and subjective evaluation?
+
+A: Objective metrics like MSE, SSIM, and PSNR tell us how close the output is to the input in pixel or feature space, but they do not directly measure whether a character looks correct or readable to a human. For Indic scripts, stroke shape and diacritic placement matter a lot. So we add subjective evaluation: expert linguist assessment, native reader judgment, naturalness score, morphological correctness, and discrimination tests. Together, objective and subjective evaluation give a full picture of reconstruction and generation quality. The Evaluation Strategy slide lists both explicitly for this reason.
+
+---
+
+Q15. What are SSIM, MSE, and PSNR in simple terms?
+
+A: MSE is mean squared error between two images — average of (pixel difference)². Lower is better. PSNR is peak signal-to-noise ratio, usually in dB; it is derived from MSE and higher is better. SSIM — structural similarity — compares two images in terms of luminance, contrast, and structure; it is often closer to human perception than MSE. So we report these three as standard reconstruction quality metrics, as stated under "Reconstruction Quality" in the Objective Analysis.
+
+---
+
+Q16. What are Inception Score and FID and will you definitely use them?
+
+A: Inception Score uses a pretrained classifier (often Inception) to measure the diversity and quality of generated images. FID — Fréchet Inception Distance — compares the distribution of real and generated images in the feature space of that classifier; lower FID means generated images are closer to real. They are common for natural images; for character images we may use them if we have a suitable pretrained model or train a small classifier. The slide lists them under "Feature Distance"; we will use them if they add value and are feasible within the timeline.
+
+---
+
+Q17. What do you mean by "class separability" in latent space?
+
+A: We encode all validation images and get latent vectors. Then we check whether a simple classifier — for example a linear classifier or small MLP — can predict the vowel class (or font) from the latent code. If it can, the latent space has learned to separate classes. We can also visualise the latent codes with t-SNE and see if same-class points cluster. So "class separability" means how well the latent representation preserves the identity of the character (or font), as mentioned under "Latent Space Metrics" in the Evaluation slide.
+
+---
+
+Q18. How will you run the "generated vs. real discrimination test"?
+
+A: We generate a set of images by sampling z from the prior and decoding. We mix them with an equal number of real images from the dataset, shuffle, and show them to participants (e.g. native readers or experts). For each image we ask: do you think this is real or generated? If participants cannot tell better than chance, the generated images are close to real. We can report the accuracy and maybe the confidence of the participants. This is the "User Studies" item under Subjective Analysis.
+
+
+--------------------------------------------------------------------------------
+CATEGORY E: CROSS-TOPIC AND FOLLOW-UPS
+--------------------------------------------------------------------------------
+
+Q19. What is the main limitation of your current work?
+
+A: The main limitation we state on the Scope slide is that we use printed fonts only; handwritten characters are reserved for future work. So we are not yet addressing handwritten Indic script generation. Other limitations include: only 13 vowels (no consonants or conjuncts), fixed resolution 128×128, and a fixed set of four fonts. We will document these clearly in the thesis and tie future work to extending to handwritten data, more characters, and possibly more fonts or scripts.
+
+---
+
+Q20. What will you do immediately after this presentation?
+
+A: We have already completed dataset collection and the pipeline. The next steps are: finalise preprocessing (normalization, split, dataloaders), implement and train the VAE, and run the full evaluation — objective metrics plus latent-space analysis and, where possible, subjective evaluation. So the immediate focus is model training and evaluation using the strategy we presented.
+
+---
+
+Q21. How does the reparameterization trick work and why is it important?
+
+A: The encoder outputs a mean μ and a variance σ² (or log-variance). We need to sample z from N(μ, σ²), but sampling is not differentiable. The reparameterization trick writes z = μ + σ ⊙ ε where ε is sampled from N(0,1). Then we can backpropagate through μ and σ because ε is independent of the parameters. So the trick makes the VAE trainable with gradient descent. It is part of the VAE methodology we use in the third stage of our pipeline.
+
+---
+
+Q22. Why compare AE vs VAE? (If someone asks and it's not on the slide)
+
+A: The methodology slide does not explicitly say "AE vs VAE," but our pipeline is for a VAE. A standard autoencoder gives a baseline: it can reconstruct but does not have a probabilistic latent space, so we cannot sample from it. Comparing AE and VAE shows whether the extra complexity of the VAE — and the KL term — is worth it for reconstruction quality and for generation. We can mention that we may train a baseline AE and compare reconstruction and latent structure with the VAE.
+
+---
+
+Q23. Where do you get the 4,160 number from?
+
+A: We have 2 scripts. Per script we have 13 alphabets × 2 fonts × 4 sizes × 20 samples = 2,080 images. So 2,080 × 2 = 4,160 total. This is stated in the Scope slide (2,080 per script) and in the Dataset Collection keypoint (4,160 images, 2,080 per script).
+
+
+################################################################################
+################################################################################
+PART 4 — QUICK REFERENCE (ONE-LINERS FOR NERVOUS MOMENTS)
+################################################################################
+################################################################################
+
+Scope — Scripts: Telugu and Hindi. Characters: 13 vowels each. Printed only. Two fonts per script. 128×128. 2,080 per script. Limitation: no handwritten in this phase.
+
+Methodology — Three stages: Dataset Collection (generate 4,160 images), Preprocessing (resize, normalize, split), VAE (encoder–decoder with reparameterization and KL). Systematic workflow.
+
+Dataset — PIL at 300 DPI, Unicode mapping, white bg. Sizes 10/14/18/22 pt. Rotation ±3°, translation ±3 px, scaling 94–106%, stroke erosion/dilation. Hash dedup, JSON metadata, validation suite. Result: 4,160 images, balanced.
+
+Evaluation — Objective: SSIM, MSE, PSNR, Inception/FID, KL, class separability, L1/L2, edge structure. Subjective: expert linguist, native readers, naturalness 1–5, morphological correctness, real-vs-generated discrimination test.
+
+================================================================================
+END OF ELABORATE SCRIPT AND Q&A (FROM ppt_professional.tex)
+================================================================================

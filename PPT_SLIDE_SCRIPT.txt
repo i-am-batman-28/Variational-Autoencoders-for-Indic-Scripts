@@ -1,0 +1,300 @@
+================================================================================
+15-SLIDE PPT — EXACT TEXT FOR EACH SLIDE
+Generative Models for Indic Scripts (Work Till Date)
+================================================================================
+Use this as the script for each slide. Copy-paste the "SLIDE TEXT" into your PPT.
+"PHOTOS TO PUT" tells you which image(s) to add and where (path = from project root).
+
+================================================================================
+IMAGE ASSETS IN YOUR PROJECT (use these paths)
+================================================================================
+  quality_samples.png           — Grid of dataset quality samples (Hindi)
+  sample_comparison.png         — Sample comparison
+  test_akshar.png               — Single Hindi character (Akshar font)
+  test_mangal.png               — Single Hindi character (Mangal font)
+  test_telugu_pothana2000.png    — Single Telugu character (Pothana2000)
+  test_telugu_lohit_telugu.png   — Single Telugu character (Lohit Telugu)
+  test_tight_fit.png            — Character sizing example
+  dataset/akshar/a/14pt/a_14pt_01.png ... (sample Hindi images)
+  dataset_Rohit/pothana2000/a/14pt/a_14pt_01.png ... (sample Telugu images)
+
+================================================================================
+SLIDE 1 — TITLE
+================================================================================
+HEADLINE: Generative Models for Indic Scripts
+
+PHOTOS TO PUT:
+  • Optional: One representative character image (e.g. test_akshar.png or test_telugu_pothana2000.png) small in a corner or as a light background watermark. Or leave title slide text-only for a clean look.
+
+SLIDE TEXT:
+• Title: Generative Models for Indic Scripts
+• Subtitle: Design of Variational Autoencoders for Telugu and Hindi
+• Bachelor’s Thesis Project (BTP)
+• [Your Name] | [Guide: Sir’s Name] | [Dept.] | [Date]
+
+================================================================================
+SLIDE 2 — INTRODUCTION
+================================================================================
+HEADLINE: Introduction
+
+PHOTOS TO PUT:
+  • Left or right half: Side-by-side Hindi + Telugu sample so “Indic scripts” is visual.
+    Use: test_akshar.png (Hindi अ) and test_telugu_pothana2000.png (Telugu అ).
+  • Or: One 2-panel image — Hindi (Akshar) | Telugu (Pothana) — to show script diversity.
+
+SLIDE TEXT:
+• Indic scripts (e.g. Hindi/Devanagari, Telugu) have rich structural and stylistic complexity.
+• Automated character generation and representation learning for these scripts is challenging.
+• Conventional autoencoders learn compact representations but do not model the underlying probability distribution.
+• Variational Autoencoders (VAEs) enable probabilistic latent space learning and controlled generation of character samples.
+• This project focuses on designing VAEs for printed Indic script characters (Hindi and Telugu) and building a curated dataset for training and evaluation.
+
+================================================================================
+SLIDE 3 — PROBLEM STATEMENT
+================================================================================
+HEADLINE: Problem Statement
+
+PHOTOS TO PUT:
+  • One small image showing “complex visual structure”: e.g. test_akshar.png or a 128×128 from dataset/akshar/a/14pt/ (any of a_14pt_01.png … a_14pt_20.png). Place bottom-right or beside the last bullet to illustrate “character morphology”.
+
+SLIDE TEXT:
+• To design and implement a Variational Autoencoder framework for Indic script characters (Telugu and Hindi).
+• To learn compact latent representations that capture the visual morphology of printed vowels.
+• To learn a smooth latent distribution that supports meaningful generation of alphabet samples.
+• To construct and use a custom dataset of font-rendered printed characters for training and evaluation.
+• The main challenge: capturing complex visual structure of Indic characters while learning a useful latent space for generation.
+
+================================================================================
+SLIDE 4 — MOTIVATION
+================================================================================
+HEADLINE: Motivation
+
+PHOTOS TO PUT:
+  • Optional: Simple diagram from the web — “VAE vs AE” or “latent space” (search “VAE diagram” or “variational autoencoder architecture”). Place right side.
+  • Or: Two character images — same alphabet, different font (e.g. test_akshar.png vs test_mangal.png) to show “complexity/variation” that VAE can model.
+
+SLIDE TEXT:
+• Complexity of Indic scripts: conjuncts, matras, multiple glyph shapes, script-specific layout.
+• Scarce large-scale labeled datasets for many Indian languages and fonts.
+• OCR and recognition systems rely heavily on supervised learning; generative models can support data augmentation and representation learning.
+• VAEs provide a principled way to model variation and generate new samples from the learned distribution.
+• Printed character data offers controlled, reproducible setup for studying VAE design before extending to handwritten data.
+
+================================================================================
+SLIDE 5 — OBJECTIVES
+================================================================================
+HEADLINE: Objectives
+
+PHOTOS TO PUT:
+  • Optional: Simple flowchart or list icon (e.g. “Objectives” clipart or a 3-box diagram: Dataset → Model → Evaluate). Or leave text-only for clarity.
+
+SLIDE TEXT:
+• To construct a custom dataset of printed Hindi (Devanagari) and Telugu characters using specified fonts.
+• To implement an Autoencoder and a Variational Autoencoder for learning latent representations of Indic script images.
+• To model the underlying probability distribution of character images using the VAE.
+• To generate new alphabet samples by sampling from the learned latent space.
+• To evaluate reconstruction quality and generation capability for both scripts.
+• To analyze latent space continuity and script-specific feature learning (as part of future work).
+
+================================================================================
+SLIDE 6 — SCOPE
+================================================================================
+HEADLINE: Scope
+
+PHOTOS TO PUT:
+  • Four small character images in a row: Hindi (Akshar), Hindi (Mangal), Telugu (Pothana), Telugu (Lohit).
+    Use: test_akshar.png, test_mangal.png, test_telugu_pothana2000.png, test_telugu_lohit_telugu.png.
+  • Caption: “Fonts used: Akshar, Mangal (Hindi) | Pothana2000, Lohit Telugu (Telugu).”
+
+SLIDE TEXT:
+• Scripts: Hindi (Devanagari) and Telugu.
+• Character set: 13 vowels per script (a, aa, i, ii, u, uu, ri, e, ai, o, au, am, aha).
+• Data type: Printed, font-rendered characters (not handwritten in current phase).
+• Fonts: Hindi — Akshar Unicode Regular, Mangal Regular; Telugu — Pothana2000, Lohit Telugu Regular.
+• Output: Grayscale/RGB images at 128×128 pixels, character-focused with minimal background.
+• Scope for current phase: dataset creation, pipeline design, and preparation for VAE implementation.
+
+================================================================================
+SLIDE 7 — LITERATURE REVIEW (OVERVIEW)
+================================================================================
+HEADLINE: Literature Review
+
+PHOTOS TO PUT:
+  • Optional: Logo strip or icons for venues (IEEE, Springer, ACM, Elsevier) at bottom.
+  • Or: One small image from a key paper (e.g. Cross-VAE or GlyphGAN architecture from the paper) if you have permission/screenshot. Otherwise keep slide text-only.
+
+SLIDE TEXT:
+• VAE for handwriting: Cross-VAE (ICDAR 2019) for online/offline modality conversion with shared latent space; conditional VAE with categorical labels for controlled character generation (IEEE).
+• Autoencoders for Indic scripts: Stacked auto-encoders for offline Telugu character recognition (Springer, ICONIP 2012); discriminative autoencoders for character recognition (Springer).
+• Character generation: Y-Autoencoder for augmenting recognizer training (LREC 2022); HiGAN, GlyphGAN, and style-conditioned GANs for handwriting and font generation (AAAI, Elsevier, BMVC); Data Incubation for synthetic handwriting (ICASSP 2022).
+• Indic datasets: IIIT-Indic-HW-Words (8 scripts), PHDIndic_11 (11 scripts); used for context and future transfer to handwritten.
+• Foundation: Kingma & Welling, Auto-Encoding Variational Bayes (ICLR 2014).
+
+================================================================================
+SLIDE 8 — METHODOLOGY (HIGH-LEVEL)
+================================================================================
+HEADLINE: Methodology
+
+PHOTOS TO PUT:
+  • A simple 5-step flowchart: Phase 1 (Dataset) → Phase 2 (Preprocess) → Phase 3 (Model) → Phase 4 (Evaluate) → Phase 5 (Analysis). Draw in PowerPoint or use a template.
+  • Or: One image of your pipeline — screenshot of terminal running generate_printed_dataset.py or a simple block diagram (Render → Crop → Vary → Resize → Save).
+
+SLIDE TEXT:
+• Phase 1 — Dataset: Design and generate printed character dataset for Hindi and Telugu with two fonts per script, multiple sizes, and controlled variations.
+• Phase 2 — Preprocessing: Resize to fixed resolution (128×128), normalize, optional grayscale; maintain train/validation split.
+• Phase 3 — Model: Implement convolutional encoder-decoder; VAE with reparameterization, KL divergence and reconstruction loss; tune latent dimension and architecture.
+• Phase 4 — Evaluation: Reconstruction error (MSE/BCE); visual quality of reconstructions and generated samples; latent space visualization (e.g. t-SNE) and interpolation.
+• Phase 5 — Analysis: Compare AE vs VAE; script-wise and font-wise analysis; document limitations and future work.
+
+================================================================================
+SLIDE 9 — DATASET DESIGN
+================================================================================
+HEADLINE: Dataset Design
+
+PHOTOS TO PUT:
+  • One image showing “variations” for the same character: pick 4–6 images from the same folder, e.g. dataset/akshar/a/14pt/a_14pt_01.png, a_14pt_02.png, a_14pt_03.png, a_14pt_04.png, a_14pt_05.png (base + rotation, translation, etc.). Arrange in a small grid. Path: dataset/akshar/a/14pt/.
+  • Optional: A simple formula or tree: 13 × 2 × 4 × 20 = 2,080 (per script).
+
+SLIDE TEXT:
+• Per script: 13 alphabets × 2 fonts × 4 font sizes × 20 samples = 2,080 images.
+• Font sizes: 10 pt, 14 pt, 18 pt, 22 pt (covers small to large print).
+• Variations (per size): One clean base sample; remaining 19 with one or more of — rotation (±3°), translation (±3 px), scaling (94–106%), stroke width (dilate/erode), contrast (95–105%), gamma (95–105%).
+• Uniqueness: Hash-based duplicate detection so each of the 20 samples per (alphabet, font, size) is distinct.
+• Rendering: High DPI (300), tight crop, resize to 128×128 with character filling ~99.7% of canvas for consistent, character-centric images.
+
+================================================================================
+SLIDE 10 — DATASET IMPLEMENTATION
+================================================================================
+HEADLINE: Dataset Implementation
+
+PHOTOS TO PUT:
+  • Screenshot of your project folder structure: dataset/, dataset_Rohit/, and inside one font (e.g. akshar/ → a/ → 14pt/ with PNGs). Or a screenshot of metadata.json (first 10–15 lines) to show structure.
+  • Or: Two panels — left “dataset/ (Hindi)”, right “dataset_Rohit/ (Telugu)” with one sample image each (e.g. dataset/akshar/a/14pt/a_14pt_01.png and dataset_Rohit/pothana2000/a/14pt/a_14pt_01.png).
+
+SLIDE TEXT:
+• Hindi dataset (dataset/): Akshar Unicode Regular, Mangal Regular; 13 Devanagari vowels; 2,080 images; metadata.json with font, alphabet, size, variation, hash.
+• Telugu dataset (dataset_Rohit/): Pothana2000, Lohit Telugu Regular; 13 Telugu vowels; 2,080 images; same structure and metadata.
+• Pipeline: render_character() → crop_to_character() → apply variations → resize_to_output() → save PNG + metadata.
+• Tools: Python, Pillow (PIL), NumPy, SciPy (morphology for stroke width), tqdm; config-driven scripts for reproducibility.
+• Total images (both scripts): 4,160 (2,080 × 2).
+
+================================================================================
+SLIDE 11 — DATASET SNAPSHOT / STRUCTURE
+================================================================================
+HEADLINE: Dataset Structure and Sample
+
+PHOTOS TO PUT:
+  • Main visual: quality_samples.png (grid of dataset samples from visual_quality_checker). Place large, centre or top.
+  • Below or beside: Two small samples — one Hindi (e.g. dataset/akshar/a/14pt/a_14pt_01.png) and one Telugu (e.g. dataset_Rohit/pothana2000/a/14pt/a_14pt_01.png) with labels “Hindi (Akshar)” and “Telugu (Pothana)”.
+  • If you don’t have quality_samples.png, use a 2×4 or 3×4 grid of images from dataset/akshar/a/14pt/ and dataset_Rohit/pothana2000/a/14pt/ to show structure and quality.
+
+SLIDE TEXT:
+• Directory structure:
+  dataset/          → akshar/, mangal/ → a, aa, …, aha → 10pt, 14pt, 18pt, 22pt → 20 PNGs each.
+  dataset_Rohit/    → pothana2000/, lohit_telugu/ → same alphabet/size layout.
+• Each image: 128×128 PNG; filename e.g. a_14pt_01.png (alphabet_sizept_index).
+• Metadata: font, alphabet, character (Unicode), font_size_pt, variation, image_hash, output_size, timestamp.
+• Quality: Minimal background; character-centric; variation parameters tuned for “bad print” realism without distortion.
+
+================================================================================
+SLIDE 12 — DESIGN (VAE PIPELINE — PLANNED)
+================================================================================
+HEADLINE: Design — VAE Pipeline (Planned)
+
+PHOTOS TO PUT:
+  • One diagram: VAE architecture — Input (128×128) → Encoder (Conv layers) → μ, σ → Reparameterize (z) → Decoder (Transposed Conv) → Reconstruction. Draw in PPT or use a standard “VAE architecture” image from the web (e.g. from Kingma & Welling or a blog).
+  • Optional: Small sample input image (e.g. dataset/akshar/a/14pt/a_14pt_01.png) on the left and a placeholder “Reconstruction / Generation” on the right to show input–output.
+
+SLIDE TEXT:
+• Input: 128×128 character image (normalized).
+• Encoder: Convolutional layers → flatten → μ and log σ² (latent dimension d, e.g. 32–128).
+• Reparameterization: z = μ + σ × ε, ε ~ N(0, I).
+• Decoder: Dense → reshape → transposed convolutions → reconstruction (same size as input).
+• Loss: L = reconstruction_loss (e.g. BCE or MSE) + β × KL(q(z|x) || p(z)); optional β-schedule.
+• Training: Adam optimizer; batch size and epochs TBD; validation reconstruction and generation checks.
+• Output: Reconstructed images; generated images via z ~ N(0, I); latent codes for visualization.
+
+================================================================================
+SLIDE 13 — WORK DONE TILL DATE
+================================================================================
+HEADLINE: Work Done Till Date
+
+PHOTOS TO PUT:
+  • Left: quality_samples.png (or a 4–6 image grid from dataset/ and dataset_Rohit/) to show “dataset ready”.
+  • Right: Screenshot of script run — terminal output of generate_printed_dataset.py or generate_printed_dataset_telugu.py showing “Total samples generated: 2080” (or both scripts with 2080 each).
+  • Or: Two panels — “Hindi: 2,080 images” with one sample (test_akshar.png or from dataset/); “Telugu: 2,080 images” with one sample (test_telugu_pothana2000.png or from dataset_Rohit/).
+
+SLIDE TEXT:
+• Literature review: 20+ papers (VAE, GAN, autoencoders, Indic script recognition and character generation); document in LITERATURE_REVIEW.txt.
+• Dataset specification: 13 vowels, 2 fonts per script, 4 sizes, 20 samples per (alphabet, font, size); variation strategy and uniqueness criteria fixed.
+• Hindi dataset: Generated (dataset/); 2,080 images; metadata and folder structure in place.
+• Telugu dataset: Generated (dataset_Rohit/); 2,080 images; same pipeline and metadata.
+• Scripts: generate_printed_dataset.py (Hindi), generate_printed_dataset_telugu.py (Telugu); parameter tuning (canvas, crop, fill %, variations) for character-centric 128×128 images.
+• Quality: Visual checks and variation tests; parameter adjustments (translation, stroke kernel, scaling) for larger character size.
+• Next: VAE implementation, training on dataset/dataset_Rohit, and evaluation.
+
+================================================================================
+SLIDE 14 — FUTURE WORK
+================================================================================
+HEADLINE: Future Work
+
+PHOTOS TO PUT:
+  • Optional: Simple 2–3 panel sketch — “Train VAE” → “Latent visualization (t-SNE)” → “Transfer to handwritten” with icons or small clipart.
+  • Or: One image of handwritten Indic script (e.g. from IIIT-Indic-HW-Words or a public sample) with caption “Target: transfer learning to handwritten data”. Or leave text-only.
+
+SLIDE TEXT:
+• Implement and train convolutional VAE on Hindi and Telugu datasets; report reconstruction and generation metrics.
+• Latent space analysis: t-SNE/UMAP visualizations; interpolation between characters; script-specific vs shared latent space experiments.
+• Class separability: Evaluate whether latent codes cluster by alphabet/script; simple classifier on latent space.
+• Transfer learning to handwritten: Pre-train on current printed data; fine-tune on IIIT-Indic-HW-Words or similar handwritten Indic data; compare with training from scratch.
+• Possible extensions: Conditional VAE (class labels); Cross-VAE style shared latent space for multiple fonts/scripts; lightweight deployment or compression studies.
+
+================================================================================
+SLIDE 15 — REFERENCES & THANK YOU
+================================================================================
+HEADLINE: References & Thank You
+
+PHOTOS TO PUT:
+  • Optional: Your institute logo or department logo at top; “Thank you” with a simple graphic (e.g. handshake or question mark for “Questions?”). No dataset images needed.
+
+SLIDE TEXT:
+• Kingma & Welling, Auto-Encoding Variational Bayes, ICLR 2014.
+• Sumi et al., Modality Conversion of Handwritten Patterns by Cross Variational Autoencoders, ICDAR 2019.
+• A System for Offline Character Recognition Using Auto-encoder Networks (Telugu), Springer ICONIP 2012.
+• IIIT-Indic-HW-Words, ICDAR 2021; PHDIndic_11, Multimedia Tools and Applications.
+• (Full list: see LITERATURE_REVIEW.txt — 20 papers with venues and links.)
+
+• Thank you.
+• Questions?
+
+================================================================================
+QUICK PHOTO CHECKLIST (by slide)
+================================================================================
+  1  : Optional character or text-only
+  2  : test_akshar.png + test_telugu_pothana2000.png (Hindi vs Telugu)
+  3  : One 128×128 from dataset/akshar/a/14pt/
+  4  : test_akshar.png vs test_mangal.png OR VAE diagram from web
+  5  : Optional flowchart or text-only
+  6  : test_akshar, test_mangal, test_telugu_pothana2000, test_telugu_lohit_telugu (all four fonts)
+  7  : Optional venue logos or text-only
+  8  : 5-phase flowchart or pipeline screenshot
+  9  : Grid of 4–6 from dataset/akshar/a/14pt/ (same char, different variations)
+ 10  : Folder screenshot or dataset/ + dataset_Rohit/ sample pair
+ 11  : quality_samples.png + one Hindi + one Telugu sample
+ 12  : VAE architecture diagram + optional input/sample image
+ 13  : quality_samples.png or grid + terminal screenshot (2080 samples)
+ 14  : Optional future-work sketch or handwritten sample
+ 15  : Optional institute/thank-you graphic
+
+================================================================================
+NOTES FOR PRESENTATION
+================================================================================
+• Keep each slide to 4–6 bullet points; expand verbally from this script.
+• All project image paths are relative to your btp folder (e.g. quality_samples.png, dataset/akshar/a/14pt/a_14pt_01.png).
+• Slide 11 and 13: quality_samples.png is the strongest visual — use it if you have it.
+• Slide 12: Search “VAE architecture diagram” or use Kingma & Welling figure for the pipeline.
+• If your actual slide headlines differ, replace the HEADLINE line and keep the SLIDE TEXT and PHOTOS TO PUT.
+
+================================================================================
+END OF SLIDE SCRIPT
+================================================================================

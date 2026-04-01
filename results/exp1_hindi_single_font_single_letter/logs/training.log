@@ -1,0 +1,311 @@
+[2026-04-01 22:51:48] INFO     ======================================================================
+[2026-04-01 22:51:48] INFO     EXPERIMENT: Exp1 Hindi: Single Font, Single Letter (akshar, letter a)
+[2026-04-01 22:51:48] INFO     ======================================================================
+[2026-04-01 22:51:48] INFO     Step 1: Collecting data and quality audit
+[2026-04-01 22:51:48] INFO     Collected 80 images
+[2026-04-01 22:51:48] INFO     Step 2: Splitting data
+[2026-04-01 22:51:48] INFO     Split: train=56, val=12, test=12
+[2026-04-01 22:51:48] INFO     Classification targets: {'point_size': 4}
+[2026-04-01 22:51:48] INFO       point_size: ['10pt', '14pt', '18pt', '22pt']
+[2026-04-01 22:51:48] INFO     Device: cpu
+[2026-04-01 22:51:48] INFO     Step 3: Training baseline model (depth=4)
+[2026-04-01 22:51:48] INFO     [depth=4] Parameters: 1,494,085, spatial: 8x8
+[2026-04-01 22:51:49] INFO     [depth=4] Epoch 001/150 | β=0.040 | lr=1.00e-03 | train=28542.07 | val=11171.36
+[2026-04-01 22:51:49] INFO     [depth=4] Epoch 002/150 | β=0.080 | lr=1.00e-03 | train=10545.13 | val=10346.67
+[2026-04-01 22:51:50] INFO     [depth=4] Epoch 003/150 | β=0.120 | lr=1.00e-03 | train=7925.62 | val=8845.52
+[2026-04-01 22:51:50] INFO     [depth=4] Epoch 004/150 | β=0.160 | lr=9.99e-04 | train=6457.06 | val=7391.17
+[2026-04-01 22:51:51] INFO     [depth=4] Epoch 005/150 | β=0.200 | lr=9.98e-04 | train=5538.49 | val=6305.46
+[2026-04-01 22:51:51] INFO     [depth=4] Epoch 006/150 | β=0.240 | lr=9.97e-04 | train=4718.67 | val=5520.47
+[2026-04-01 22:51:52] INFO     [depth=4] Epoch 007/150 | β=0.280 | lr=9.96e-04 | train=4211.59 | val=4284.87
+[2026-04-01 22:51:52] INFO     [depth=4] Epoch 008/150 | β=0.320 | lr=9.95e-04 | train=3839.96 | val=3012.85
+[2026-04-01 22:51:53] INFO     [depth=4] Epoch 009/150 | β=0.360 | lr=9.93e-04 | train=3557.47 | val=2761.50
+[2026-04-01 22:51:53] INFO     [depth=4] Epoch 010/150 | β=0.400 | lr=9.91e-04 | train=3148.76 | val=2653.33
+[2026-04-01 22:51:54] INFO     [depth=4] Epoch 011/150 | β=0.440 | lr=9.89e-04 | train=2827.18 | val=2152.20
+[2026-04-01 22:51:55] INFO     [depth=4] Epoch 012/150 | β=0.480 | lr=9.87e-04 | train=2601.10 | val=1952.16
+[2026-04-01 22:51:55] INFO     [depth=4] Epoch 013/150 | β=0.520 | lr=9.84e-04 | train=2409.89 | val=1908.73
+[2026-04-01 22:51:56] INFO     [depth=4] Epoch 014/150 | β=0.560 | lr=9.82e-04 | train=2238.22 | val=1779.49
+[2026-04-01 22:51:56] INFO     [depth=4] Epoch 015/150 | β=0.600 | lr=9.79e-04 | train=2103.86 | val=1686.49
+[2026-04-01 22:51:57] INFO     [depth=4] Epoch 016/150 | β=0.640 | lr=9.76e-04 | train=2069.56 | val=1500.99
+[2026-04-01 22:51:57] INFO     [depth=4] Epoch 017/150 | β=0.680 | lr=9.72e-04 | train=2040.37 | val=1541.88
+[2026-04-01 22:51:58] INFO     [depth=4] Epoch 018/150 | β=0.720 | lr=9.69e-04 | train=2007.69 | val=1511.91
+[2026-04-01 22:51:58] INFO     [depth=4] Epoch 019/150 | β=0.760 | lr=9.65e-04 | train=1947.50 | val=1473.46
+[2026-04-01 22:51:59] INFO     [depth=4] Epoch 020/150 | β=0.800 | lr=9.61e-04 | train=1958.98 | val=1274.10
+[2026-04-01 22:51:59] INFO     [depth=4] Epoch 021/150 | β=0.840 | lr=9.57e-04 | train=2037.23 | val=1289.90
+[2026-04-01 22:52:00] INFO     [depth=4] Epoch 022/150 | β=0.880 | lr=9.53e-04 | train=2098.92 | val=1407.70
+[2026-04-01 22:52:00] INFO     [depth=4] Epoch 023/150 | β=0.920 | lr=9.48e-04 | train=1950.57 | val=1455.11
+[2026-04-01 22:52:01] INFO     [depth=4] Epoch 024/150 | β=0.960 | lr=9.44e-04 | train=1851.05 | val=1288.77
+[2026-04-01 22:52:01] INFO     [depth=4] Epoch 025/150 | β=1.000 | lr=9.39e-04 | train=1910.03 | val=1323.46
+[2026-04-01 22:52:01] INFO     [depth=4] Epoch 026/150 | β=1.000 | lr=9.34e-04 | train=1937.19 | val=1287.48
+[2026-04-01 22:52:02] INFO     [depth=4] Epoch 027/150 | β=1.000 | lr=9.28e-04 | train=1907.03 | val=1216.95
+[2026-04-01 22:52:02] INFO     [depth=4] Epoch 028/150 | β=1.000 | lr=9.23e-04 | train=1726.99 | val=1215.27
+[2026-04-01 22:52:03] INFO     [depth=4] Epoch 029/150 | β=1.000 | lr=9.17e-04 | train=1943.43 | val=1170.24
+[2026-04-01 22:52:03] INFO     [depth=4] Epoch 030/150 | β=1.000 | lr=9.11e-04 | train=1834.82 | val=1279.43
+[2026-04-01 22:52:04] INFO     [depth=4] Epoch 031/150 | β=1.000 | lr=9.05e-04 | train=1952.66 | val=1224.64
+[2026-04-01 22:52:04] INFO     [depth=4] Epoch 032/150 | β=1.000 | lr=8.99e-04 | train=1921.02 | val=1308.15
+[2026-04-01 22:52:05] INFO     [depth=4] Epoch 033/150 | β=1.000 | lr=8.93e-04 | train=1782.44 | val=1167.69
+[2026-04-01 22:52:05] INFO     [depth=4] Epoch 034/150 | β=1.000 | lr=8.86e-04 | train=1821.86 | val=1251.81
+[2026-04-01 22:52:06] INFO     [depth=4] Epoch 035/150 | β=1.000 | lr=8.80e-04 | train=1806.58 | val=1308.66
+[2026-04-01 22:52:06] INFO     [depth=4] Epoch 036/150 | β=1.000 | lr=8.73e-04 | train=1707.05 | val=1145.62
+[2026-04-01 22:52:07] INFO     [depth=4] Epoch 037/150 | β=1.000 | lr=8.66e-04 | train=1668.20 | val=1170.93
+[2026-04-01 22:52:07] INFO     [depth=4] Epoch 038/150 | β=1.000 | lr=8.59e-04 | train=1924.88 | val=1099.92
+[2026-04-01 22:52:08] INFO     [depth=4] Epoch 039/150 | β=1.000 | lr=8.51e-04 | train=1746.13 | val=1097.96
+[2026-04-01 22:52:08] INFO     [depth=4] Epoch 040/150 | β=1.000 | lr=8.44e-04 | train=1834.20 | val=1175.13
+[2026-04-01 22:52:09] INFO     [depth=4] Epoch 041/150 | β=1.000 | lr=8.36e-04 | train=1927.59 | val=1112.52
+[2026-04-01 22:52:09] INFO     [depth=4] Epoch 042/150 | β=1.000 | lr=8.28e-04 | train=1804.67 | val=1204.48
+[2026-04-01 22:52:10] INFO     [depth=4] Epoch 043/150 | β=1.000 | lr=8.21e-04 | train=1717.17 | val=1110.40
+[2026-04-01 22:52:10] INFO     [depth=4] Epoch 044/150 | β=1.000 | lr=8.12e-04 | train=1891.66 | val=1160.78
+[2026-04-01 22:52:10] INFO     [depth=4] Epoch 045/150 | β=1.000 | lr=8.04e-04 | train=1680.47 | val=1080.00
+[2026-04-01 22:52:11] INFO     [depth=4] Epoch 046/150 | β=1.000 | lr=7.96e-04 | train=1694.20 | val=1119.64
+[2026-04-01 22:52:12] INFO     [depth=4] Epoch 047/150 | β=1.000 | lr=7.88e-04 | train=1771.00 | val=1188.25
+[2026-04-01 22:52:12] INFO     [depth=4] Epoch 048/150 | β=1.000 | lr=7.79e-04 | train=1757.23 | val=1048.35
+[2026-04-01 22:52:12] INFO     [depth=4] Epoch 049/150 | β=1.000 | lr=7.70e-04 | train=1723.70 | val=1106.18
+[2026-04-01 22:52:13] INFO     [depth=4] Epoch 050/150 | β=1.000 | lr=7.61e-04 | train=1784.05 | val=1031.29
+[2026-04-01 22:52:13] INFO     [depth=4] Epoch 051/150 | β=1.000 | lr=7.52e-04 | train=1777.21 | val=1164.25
+[2026-04-01 22:52:14] INFO     [depth=4] Epoch 052/150 | β=1.000 | lr=7.43e-04 | train=1840.49 | val=1068.37
+[2026-04-01 22:52:14] INFO     [depth=4] Epoch 053/150 | β=1.000 | lr=7.34e-04 | train=1697.41 | val=1075.22
+[2026-04-01 22:52:15] INFO     [depth=4] Epoch 054/150 | β=1.000 | lr=7.25e-04 | train=1718.75 | val=1055.91
+[2026-04-01 22:52:15] INFO     [depth=4] Epoch 055/150 | β=1.000 | lr=7.16e-04 | train=1691.01 | val=1075.23
+[2026-04-01 22:52:16] INFO     [depth=4] Epoch 056/150 | β=1.000 | lr=7.06e-04 | train=1633.85 | val=1157.09
+[2026-04-01 22:52:16] INFO     [depth=4] Epoch 057/150 | β=1.000 | lr=6.97e-04 | train=1727.43 | val=1114.62
+[2026-04-01 22:52:16] INFO     [depth=4] Epoch 058/150 | β=1.000 | lr=6.87e-04 | train=1889.78 | val=1077.47
+[2026-04-01 22:52:17] INFO     [depth=4] Epoch 059/150 | β=1.000 | lr=6.78e-04 | train=1769.47 | val=1092.39
+[2026-04-01 22:52:17] INFO     [depth=4] Epoch 060/150 | β=1.000 | lr=6.68e-04 | train=1790.99 | val=1062.54
+[2026-04-01 22:52:18] INFO     [depth=4] Epoch 061/150 | β=1.000 | lr=6.58e-04 | train=1780.99 | val=1037.43
+[2026-04-01 22:52:18] INFO     [depth=4] Epoch 062/150 | β=1.000 | lr=6.48e-04 | train=1863.65 | val=1047.54
+[2026-04-01 22:52:19] INFO     [depth=4] Epoch 063/150 | β=1.000 | lr=6.38e-04 | train=1764.24 | val=1015.22
+[2026-04-01 22:52:19] INFO     [depth=4] Epoch 064/150 | β=1.000 | lr=6.28e-04 | train=1601.46 | val=1042.23
+[2026-04-01 22:52:20] INFO     [depth=4] Epoch 065/150 | β=1.000 | lr=6.18e-04 | train=1654.38 | val=1007.67
+[2026-04-01 22:52:20] INFO     [depth=4] Epoch 066/150 | β=1.000 | lr=6.08e-04 | train=1673.80 | val=1051.08
+[2026-04-01 22:52:21] INFO     [depth=4] Epoch 067/150 | β=1.000 | lr=5.98e-04 | train=1673.74 | val=1095.05
+[2026-04-01 22:52:21] INFO     [depth=4] Epoch 068/150 | β=1.000 | lr=5.88e-04 | train=1731.06 | val=1181.96
+[2026-04-01 22:52:22] INFO     [depth=4] Epoch 069/150 | β=1.000 | lr=5.77e-04 | train=1714.87 | val=1152.88
+[2026-04-01 22:52:22] INFO     [depth=4] Epoch 070/150 | β=1.000 | lr=5.67e-04 | train=1728.01 | val=1152.68
+[2026-04-01 22:52:23] INFO     [depth=4] Epoch 071/150 | β=1.000 | lr=5.57e-04 | train=1793.71 | val=1101.26
+[2026-04-01 22:52:23] INFO     [depth=4] Epoch 072/150 | β=1.000 | lr=5.46e-04 | train=1731.61 | val=1070.20
+[2026-04-01 22:52:24] INFO     [depth=4] Epoch 073/150 | β=1.000 | lr=5.36e-04 | train=1586.77 | val=1057.52
+[2026-04-01 22:52:24] INFO     [depth=4] Epoch 074/150 | β=1.000 | lr=5.26e-04 | train=1650.76 | val=1054.02
+[2026-04-01 22:52:24] INFO     [depth=4] Epoch 075/150 | β=1.000 | lr=5.15e-04 | train=1654.73 | val=1089.56
+[2026-04-01 22:52:25] INFO     [depth=4] Epoch 076/150 | β=1.000 | lr=5.05e-04 | train=1615.00 | val=1064.83
+[2026-04-01 22:52:25] INFO     [depth=4] Epoch 077/150 | β=1.000 | lr=4.95e-04 | train=1702.56 | val=1073.64
+[2026-04-01 22:52:26] INFO     [depth=4] Epoch 078/150 | β=1.000 | lr=4.84e-04 | train=1414.80 | val=1045.08
+[2026-04-01 22:52:26] INFO     [depth=4] Epoch 079/150 | β=1.000 | lr=4.74e-04 | train=1521.97 | val=1069.84
+[2026-04-01 22:52:27] INFO     [depth=4] Epoch 080/150 | β=1.000 | lr=4.64e-04 | train=1728.39 | val=1025.57
+[2026-04-01 22:52:28] INFO     [depth=4] Epoch 081/150 | β=1.000 | lr=4.53e-04 | train=1676.50 | val=1066.37
+[2026-04-01 22:52:29] INFO     [depth=4] Epoch 082/150 | β=1.000 | lr=4.43e-04 | train=1637.54 | val=1060.94
+[2026-04-01 22:52:29] INFO     [depth=4] Epoch 083/150 | β=1.000 | lr=4.33e-04 | train=1694.92 | val=1057.68
+[2026-04-01 22:52:30] INFO     [depth=4] Epoch 084/150 | β=1.000 | lr=4.22e-04 | train=1582.28 | val=1030.03
+[2026-04-01 22:52:31] INFO     [depth=4] Epoch 085/150 | β=1.000 | lr=4.12e-04 | train=1537.53 | val=1019.83
+[2026-04-01 22:52:31] INFO     [depth=4] Epoch 086/150 | β=1.000 | lr=4.02e-04 | train=1570.10 | val=1025.92
+[2026-04-01 22:52:32] INFO     [depth=4] Epoch 087/150 | β=1.000 | lr=3.92e-04 | train=1648.81 | val=1008.83
+[2026-04-01 22:52:32] INFO     [depth=4] Epoch 088/150 | β=1.000 | lr=3.82e-04 | train=1524.47 | val=1033.67
+[2026-04-01 22:52:33] INFO     [depth=4] Epoch 089/150 | β=1.000 | lr=3.72e-04 | train=1770.82 | val=1068.91
+[2026-04-01 22:52:33] INFO     [depth=4] Epoch 090/150 | β=1.000 | lr=3.62e-04 | train=1857.80 | val=1190.90
+[2026-04-01 22:52:33] INFO     [depth=4] Early stopping at epoch 90, best=65
+[2026-04-01 22:52:33] INFO     [depth=4] Training complete. Best epoch: 65, val: 1007.6722
+[2026-04-01 22:52:34] INFO     [depth=4] Test: MSE=0.004161, PSNR=23.97, SSIM=0.9768
+[2026-04-01 22:52:36] INFO     Shapiro dim_0: p=0.0000
+[2026-04-01 22:52:36] INFO     Shapiro dim_1: p=0.0013
+[2026-04-01 22:52:36] INFO     Aux classifier early stop at epoch 38
+[2026-04-01 22:52:36] INFO     Aux [point_size] accuracy: 0.2500
+[2026-04-01 22:52:36] INFO     
+              precision    recall  f1-score   support
+
+        10pt       0.50      0.33      0.40         3
+        14pt       0.00      0.00      0.00         3
+        18pt       0.00      0.00      0.00         3
+        22pt       0.20      0.67      0.31         3
+
+    accuracy                           0.25        12
+   macro avg       0.17      0.25      0.18        12
+weighted avg       0.18      0.25      0.18        12
+
+[2026-04-01 22:52:36] INFO     Depth variant: 5
+[2026-04-01 22:52:36] INFO     [depth=5] Params: 5,633,349
+[2026-04-01 22:52:37] INFO     [depth=5] Epoch 001/150 | β=0.040 | lr=1.00e-03 | train=13681.20 | val=12053.24
+[2026-04-01 22:52:38] INFO     [depth=5] Epoch 002/150 | β=0.080 | lr=1.00e-03 | train=9295.08 | val=10946.91
+[2026-04-01 22:52:39] INFO     [depth=5] Epoch 003/150 | β=0.120 | lr=1.00e-03 | train=7433.26 | val=8970.10
+[2026-04-01 22:52:39] INFO     [depth=5] Epoch 004/150 | β=0.160 | lr=9.99e-04 | train=6145.79 | val=6898.49
+[2026-04-01 22:52:40] INFO     [depth=5] Epoch 005/150 | β=0.200 | lr=9.98e-04 | train=5315.54 | val=5454.10
+[2026-04-01 22:52:41] INFO     [depth=5] Epoch 006/150 | β=0.240 | lr=9.97e-04 | train=4574.34 | val=4695.37
+[2026-04-01 22:52:42] INFO     [depth=5] Epoch 007/150 | β=0.280 | lr=9.96e-04 | train=4100.73 | val=3560.07
+[2026-04-01 22:52:43] INFO     [depth=5] Epoch 008/150 | β=0.320 | lr=9.95e-04 | train=3708.71 | val=2975.95
+[2026-04-01 22:52:43] INFO     [depth=5] Epoch 009/150 | β=0.360 | lr=9.93e-04 | train=3403.89 | val=2634.25
+[2026-04-01 22:52:44] INFO     [depth=5] Epoch 010/150 | β=0.400 | lr=9.91e-04 | train=3082.70 | val=2167.68
+[2026-04-01 22:52:45] INFO     [depth=5] Epoch 011/150 | β=0.440 | lr=9.89e-04 | train=2893.58 | val=2262.23
+[2026-04-01 22:52:46] INFO     [depth=5] Epoch 012/150 | β=0.480 | lr=9.87e-04 | train=2587.73 | val=1771.80
+[2026-04-01 22:52:46] INFO     [depth=5] Epoch 013/150 | β=0.520 | lr=9.84e-04 | train=2469.18 | val=1851.83
+[2026-04-01 22:52:47] INFO     [depth=5] Epoch 014/150 | β=0.560 | lr=9.82e-04 | train=2244.93 | val=1641.27
+[2026-04-01 22:52:48] INFO     [depth=5] Epoch 015/150 | β=0.600 | lr=9.79e-04 | train=2065.44 | val=1466.39
+[2026-04-01 22:52:48] INFO     [depth=5] Epoch 016/150 | β=0.640 | lr=9.76e-04 | train=2057.88 | val=1448.51
+[2026-04-01 22:52:49] INFO     [depth=5] Epoch 017/150 | β=0.680 | lr=9.72e-04 | train=2094.51 | val=1575.25
+[2026-04-01 22:52:50] INFO     [depth=5] Epoch 018/150 | β=0.720 | lr=9.69e-04 | train=2129.50 | val=1593.16
+[2026-04-01 22:52:51] INFO     [depth=5] Epoch 019/150 | β=0.760 | lr=9.65e-04 | train=1989.91 | val=1564.11
+[2026-04-01 22:52:51] INFO     [depth=5] Epoch 020/150 | β=0.800 | lr=9.61e-04 | train=2000.93 | val=1130.76
+[2026-04-01 22:52:52] INFO     [depth=5] Epoch 021/150 | β=0.840 | lr=9.57e-04 | train=1902.07 | val=1219.87
+[2026-04-01 22:52:53] INFO     [depth=5] Epoch 022/150 | β=0.880 | lr=9.53e-04 | train=2000.49 | val=1434.73
+[2026-04-01 22:52:53] INFO     [depth=5] Epoch 023/150 | β=0.920 | lr=9.48e-04 | train=2030.36 | val=1547.28
+[2026-04-01 22:52:54] INFO     [depth=5] Epoch 024/150 | β=0.960 | lr=9.44e-04 | train=1989.52 | val=1316.43
+[2026-04-01 22:52:55] INFO     [depth=5] Epoch 025/150 | β=1.000 | lr=9.39e-04 | train=2008.34 | val=1314.89
+[2026-04-01 22:52:55] INFO     [depth=5] Epoch 026/150 | β=1.000 | lr=9.34e-04 | train=1841.38 | val=1231.53
+[2026-04-01 22:52:56] INFO     [depth=5] Epoch 027/150 | β=1.000 | lr=9.28e-04 | train=1912.11 | val=1207.78
+[2026-04-01 22:52:57] INFO     [depth=5] Epoch 028/150 | β=1.000 | lr=9.23e-04 | train=1729.53 | val=1226.41
+[2026-04-01 22:52:58] INFO     [depth=5] Epoch 029/150 | β=1.000 | lr=9.17e-04 | train=1928.48 | val=1206.29
+[2026-04-01 22:52:58] INFO     [depth=5] Epoch 030/150 | β=1.000 | lr=9.11e-04 | train=1886.19 | val=1593.07
+[2026-04-01 22:52:59] INFO     [depth=5] Epoch 031/150 | β=1.000 | lr=9.05e-04 | train=1942.74 | val=1255.79
+[2026-04-01 22:53:00] INFO     [depth=5] Epoch 032/150 | β=1.000 | lr=8.99e-04 | train=1896.07 | val=1186.64
+[2026-04-01 22:53:00] INFO     [depth=5] Epoch 033/150 | β=1.000 | lr=8.93e-04 | train=1771.69 | val=1132.81
+[2026-04-01 22:53:01] INFO     [depth=5] Epoch 034/150 | β=1.000 | lr=8.86e-04 | train=1768.04 | val=1188.56
+[2026-04-01 22:53:02] INFO     [depth=5] Epoch 035/150 | β=1.000 | lr=8.80e-04 | train=1766.91 | val=1215.12
+[2026-04-01 22:53:02] INFO     [depth=5] Epoch 036/150 | β=1.000 | lr=8.73e-04 | train=1668.30 | val=1214.05
+[2026-04-01 22:53:03] INFO     [depth=5] Epoch 037/150 | β=1.000 | lr=8.66e-04 | train=1670.73 | val=1321.94
+[2026-04-01 22:53:04] INFO     [depth=5] Epoch 038/150 | β=1.000 | lr=8.59e-04 | train=1899.49 | val=1130.65
+[2026-04-01 22:53:04] INFO     [depth=5] Epoch 039/150 | β=1.000 | lr=8.51e-04 | train=1813.40 | val=1182.91
+[2026-04-01 22:53:05] INFO     [depth=5] Epoch 040/150 | β=1.000 | lr=8.44e-04 | train=1855.32 | val=1288.72
+[2026-04-01 22:53:06] INFO     [depth=5] Epoch 041/150 | β=1.000 | lr=8.36e-04 | train=1827.42 | val=1276.09
+[2026-04-01 22:53:06] INFO     [depth=5] Epoch 042/150 | β=1.000 | lr=8.28e-04 | train=1710.68 | val=1373.01
+[2026-04-01 22:53:07] INFO     [depth=5] Epoch 043/150 | β=1.000 | lr=8.21e-04 | train=1863.83 | val=1293.65
+[2026-04-01 22:53:08] INFO     [depth=5] Epoch 044/150 | β=1.000 | lr=8.12e-04 | train=1831.28 | val=1240.27
+[2026-04-01 22:53:08] INFO     [depth=5] Epoch 045/150 | β=1.000 | lr=8.04e-04 | train=1583.99 | val=1385.40
+[2026-04-01 22:53:09] INFO     [depth=5] Epoch 046/150 | β=1.000 | lr=7.96e-04 | train=1639.95 | val=1578.37
+[2026-04-01 22:53:10] INFO     [depth=5] Epoch 047/150 | β=1.000 | lr=7.88e-04 | train=1710.52 | val=1290.54
+[2026-04-01 22:53:10] INFO     [depth=5] Epoch 048/150 | β=1.000 | lr=7.79e-04 | train=1624.55 | val=1206.44
+[2026-04-01 22:53:11] INFO     [depth=5] Epoch 049/150 | β=1.000 | lr=7.70e-04 | train=1658.34 | val=1266.77
+[2026-04-01 22:53:12] INFO     [depth=5] Epoch 050/150 | β=1.000 | lr=7.61e-04 | train=1596.69 | val=1463.62
+[2026-04-01 22:53:12] INFO     [depth=5] Epoch 051/150 | β=1.000 | lr=7.52e-04 | train=1654.41 | val=1718.70
+[2026-04-01 22:53:13] INFO     [depth=5] Epoch 052/150 | β=1.000 | lr=7.43e-04 | train=1654.73 | val=1581.24
+[2026-04-01 22:53:13] INFO     [depth=5] Epoch 053/150 | β=1.000 | lr=7.34e-04 | train=1643.29 | val=1355.22
+[2026-04-01 22:53:14] INFO     [depth=5] Epoch 054/150 | β=1.000 | lr=7.25e-04 | train=1559.22 | val=1351.06
+[2026-04-01 22:53:15] INFO     [depth=5] Epoch 055/150 | β=1.000 | lr=7.16e-04 | train=1583.03 | val=1315.33
+[2026-04-01 22:53:15] INFO     [depth=5] Epoch 056/150 | β=1.000 | lr=7.06e-04 | train=1454.79 | val=1274.59
+[2026-04-01 22:53:16] INFO     [depth=5] Epoch 057/150 | β=1.000 | lr=6.97e-04 | train=1519.25 | val=1407.47
+[2026-04-01 22:53:17] INFO     [depth=5] Epoch 058/150 | β=1.000 | lr=6.87e-04 | train=1839.13 | val=1345.89
+[2026-04-01 22:53:17] INFO     [depth=5] Epoch 059/150 | β=1.000 | lr=6.78e-04 | train=1682.53 | val=1371.87
+[2026-04-01 22:53:18] INFO     [depth=5] Epoch 060/150 | β=1.000 | lr=6.68e-04 | train=1753.79 | val=1685.44
+[2026-04-01 22:53:19] INFO     [depth=5] Epoch 061/150 | β=1.000 | lr=6.58e-04 | train=1778.13 | val=1240.12
+[2026-04-01 22:53:19] INFO     [depth=5] Epoch 062/150 | β=1.000 | lr=6.48e-04 | train=1687.09 | val=1326.53
+[2026-04-01 22:53:20] INFO     [depth=5] Epoch 063/150 | β=1.000 | lr=6.38e-04 | train=1623.82 | val=1292.83
+[2026-04-01 22:53:20] INFO     [depth=5] Early stopping at epoch 63, best=38
+[2026-04-01 22:53:20] INFO     [depth=5] Training complete. Best epoch: 38, val: 1130.6467
+[2026-04-01 22:53:20] INFO     [depth=5] MSE=0.007049, PSNR=21.55, SSIM=0.9597
+[2026-04-01 22:53:21] INFO     Depth variant: 6
+[2026-04-01 22:53:21] INFO     [depth=6] Params: 5,606,309
+[2026-04-01 22:53:22] INFO     [depth=6] Epoch 001/150 | β=0.040 | lr=1.00e-03 | train=12773.68 | val=11441.40
+[2026-04-01 22:53:23] INFO     [depth=6] Epoch 002/150 | β=0.080 | lr=1.00e-03 | train=10448.25 | val=10903.83
+[2026-04-01 22:53:23] INFO     [depth=6] Epoch 003/150 | β=0.120 | lr=1.00e-03 | train=9414.17 | val=10180.24
+[2026-04-01 22:53:24] INFO     [depth=6] Epoch 004/150 | β=0.160 | lr=9.99e-04 | train=8668.16 | val=9326.05
+[2026-04-01 22:53:24] INFO     [depth=6] Epoch 005/150 | β=0.200 | lr=9.98e-04 | train=8120.61 | val=8510.79
+[2026-04-01 22:53:25] INFO     [depth=6] Epoch 006/150 | β=0.240 | lr=9.97e-04 | train=7600.60 | val=7722.44
+[2026-04-01 22:53:26] INFO     [depth=6] Epoch 007/150 | β=0.280 | lr=9.96e-04 | train=7207.35 | val=7060.93
+[2026-04-01 22:53:26] INFO     [depth=6] Epoch 008/150 | β=0.320 | lr=9.95e-04 | train=6840.07 | val=6571.41
+[2026-04-01 22:53:27] INFO     [depth=6] Epoch 009/150 | β=0.360 | lr=9.93e-04 | train=6529.87 | val=6178.00
+[2026-04-01 22:53:27] INFO     [depth=6] Epoch 010/150 | β=0.400 | lr=9.91e-04 | train=6150.70 | val=5811.12
+[2026-04-01 22:53:28] INFO     [depth=6] Epoch 011/150 | β=0.440 | lr=9.89e-04 | train=5837.49 | val=5456.80
+[2026-04-01 22:53:29] INFO     [depth=6] Epoch 012/150 | β=0.480 | lr=9.87e-04 | train=5476.16 | val=5045.65
+[2026-04-01 22:53:29] INFO     [depth=6] Epoch 013/150 | β=0.520 | lr=9.84e-04 | train=5181.90 | val=4589.66
+[2026-04-01 22:53:30] INFO     [depth=6] Epoch 014/150 | β=0.560 | lr=9.82e-04 | train=4816.16 | val=4379.39
+[2026-04-01 22:53:31] INFO     [depth=6] Epoch 015/150 | β=0.600 | lr=9.79e-04 | train=4488.69 | val=4115.98
+[2026-04-01 22:53:32] INFO     [depth=6] Epoch 016/150 | β=0.640 | lr=9.76e-04 | train=4296.24 | val=3782.24
+[2026-04-01 22:53:32] INFO     [depth=6] Epoch 017/150 | β=0.680 | lr=9.72e-04 | train=4087.74 | val=3400.42
+[2026-04-01 22:53:33] INFO     [depth=6] Epoch 018/150 | β=0.720 | lr=9.69e-04 | train=3915.55 | val=3181.14
+[2026-04-01 22:53:34] INFO     [depth=6] Epoch 019/150 | β=0.760 | lr=9.65e-04 | train=3581.33 | val=2953.11
+[2026-04-01 22:53:34] INFO     [depth=6] Epoch 020/150 | β=0.800 | lr=9.61e-04 | train=3446.24 | val=2893.65
+[2026-04-01 22:53:35] INFO     [depth=6] Epoch 021/150 | β=0.840 | lr=9.57e-04 | train=3247.94 | val=2521.91
+[2026-04-01 22:53:36] INFO     [depth=6] Epoch 022/150 | β=0.880 | lr=9.53e-04 | train=3172.65 | val=2432.39
+[2026-04-01 22:53:36] INFO     [depth=6] Epoch 023/150 | β=0.920 | lr=9.48e-04 | train=2995.68 | val=2237.02
+[2026-04-01 22:53:37] INFO     [depth=6] Epoch 024/150 | β=0.960 | lr=9.44e-04 | train=2785.15 | val=2600.38
+[2026-04-01 22:53:37] INFO     [depth=6] Epoch 025/150 | β=1.000 | lr=9.39e-04 | train=2781.10 | val=1979.85
+[2026-04-01 22:53:38] INFO     [depth=6] Epoch 026/150 | β=1.000 | lr=9.34e-04 | train=2721.89 | val=1831.75
+[2026-04-01 22:53:39] INFO     [depth=6] Epoch 027/150 | β=1.000 | lr=9.28e-04 | train=2670.09 | val=1859.69
+[2026-04-01 22:53:39] INFO     [depth=6] Epoch 028/150 | β=1.000 | lr=9.23e-04 | train=2454.71 | val=2049.36
+[2026-04-01 22:53:40] INFO     [depth=6] Epoch 029/150 | β=1.000 | lr=9.17e-04 | train=2652.02 | val=1605.25
+[2026-04-01 22:53:41] INFO     [depth=6] Epoch 030/150 | β=1.000 | lr=9.11e-04 | train=2427.82 | val=1543.15
+[2026-04-01 22:53:42] INFO     [depth=6] Epoch 031/150 | β=1.000 | lr=9.05e-04 | train=2413.90 | val=1428.52
+[2026-04-01 22:53:43] INFO     [depth=6] Epoch 032/150 | β=1.000 | lr=8.99e-04 | train=2402.47 | val=1437.73
+[2026-04-01 22:53:43] INFO     [depth=6] Epoch 033/150 | β=1.000 | lr=8.93e-04 | train=2239.70 | val=1306.96
+[2026-04-01 22:53:44] INFO     [depth=6] Epoch 034/150 | β=1.000 | lr=8.86e-04 | train=2276.77 | val=1305.00
+[2026-04-01 22:53:45] INFO     [depth=6] Epoch 035/150 | β=1.000 | lr=8.80e-04 | train=2222.85 | val=1696.18
+[2026-04-01 22:53:45] INFO     [depth=6] Epoch 036/150 | β=1.000 | lr=8.73e-04 | train=2057.63 | val=1442.90
+[2026-04-01 22:53:46] INFO     [depth=6] Epoch 037/150 | β=1.000 | lr=8.66e-04 | train=2164.40 | val=1210.75
+[2026-04-01 22:53:47] INFO     [depth=6] Epoch 038/150 | β=1.000 | lr=8.59e-04 | train=2277.23 | val=1235.03
+[2026-04-01 22:53:47] INFO     [depth=6] Epoch 039/150 | β=1.000 | lr=8.51e-04 | train=2117.26 | val=1215.80
+[2026-04-01 22:53:48] INFO     [depth=6] Epoch 040/150 | β=1.000 | lr=8.44e-04 | train=2105.34 | val=1522.08
+[2026-04-01 22:53:49] INFO     [depth=6] Epoch 041/150 | β=1.000 | lr=8.36e-04 | train=2183.64 | val=1235.93
+[2026-04-01 22:53:49] INFO     [depth=6] Epoch 042/150 | β=1.000 | lr=8.28e-04 | train=2041.51 | val=1717.18
+[2026-04-01 22:53:50] INFO     [depth=6] Epoch 043/150 | β=1.000 | lr=8.21e-04 | train=1910.01 | val=1217.03
+[2026-04-01 22:53:50] INFO     [depth=6] Epoch 044/150 | β=1.000 | lr=8.12e-04 | train=2048.48 | val=1660.87
+[2026-04-01 22:53:51] INFO     [depth=6] Epoch 045/150 | β=1.000 | lr=8.04e-04 | train=1840.14 | val=1191.49
+[2026-04-01 22:53:52] INFO     [depth=6] Epoch 046/150 | β=1.000 | lr=7.96e-04 | train=1821.79 | val=1256.01
+[2026-04-01 22:53:52] INFO     [depth=6] Epoch 047/150 | β=1.000 | lr=7.88e-04 | train=1930.53 | val=1216.17
+[2026-04-01 22:53:53] INFO     [depth=6] Epoch 048/150 | β=1.000 | lr=7.79e-04 | train=1787.17 | val=1205.99
+[2026-04-01 22:53:54] INFO     [depth=6] Epoch 049/150 | β=1.000 | lr=7.70e-04 | train=1808.93 | val=1268.32
+[2026-04-01 22:53:55] INFO     [depth=6] Epoch 050/150 | β=1.000 | lr=7.61e-04 | train=1982.15 | val=1547.57
+[2026-04-01 22:53:56] INFO     [depth=6] Epoch 051/150 | β=1.000 | lr=7.52e-04 | train=1877.93 | val=1458.97
+[2026-04-01 22:53:57] INFO     [depth=6] Epoch 052/150 | β=1.000 | lr=7.43e-04 | train=1837.77 | val=1254.21
+[2026-04-01 22:53:57] INFO     [depth=6] Epoch 053/150 | β=1.000 | lr=7.34e-04 | train=1747.68 | val=1325.14
+[2026-04-01 22:53:58] INFO     [depth=6] Epoch 054/150 | β=1.000 | lr=7.25e-04 | train=1776.57 | val=1324.68
+[2026-04-01 22:53:59] INFO     [depth=6] Epoch 055/150 | β=1.000 | lr=7.16e-04 | train=1818.94 | val=1393.33
+[2026-04-01 22:54:00] INFO     [depth=6] Epoch 056/150 | β=1.000 | lr=7.06e-04 | train=1745.82 | val=1300.54
+[2026-04-01 22:54:00] INFO     [depth=6] Epoch 057/150 | β=1.000 | lr=6.97e-04 | train=1732.19 | val=1263.93
+[2026-04-01 22:54:01] INFO     [depth=6] Epoch 058/150 | β=1.000 | lr=6.87e-04 | train=1926.53 | val=1408.36
+[2026-04-01 22:54:01] INFO     [depth=6] Epoch 059/150 | β=1.000 | lr=6.78e-04 | train=1867.86 | val=1323.51
+[2026-04-01 22:54:02] INFO     [depth=6] Epoch 060/150 | β=1.000 | lr=6.68e-04 | train=1813.49 | val=1302.40
+[2026-04-01 22:54:02] INFO     [depth=6] Epoch 061/150 | β=1.000 | lr=6.58e-04 | train=1858.98 | val=1386.43
+[2026-04-01 22:54:03] INFO     [depth=6] Epoch 062/150 | β=1.000 | lr=6.48e-04 | train=1842.55 | val=1356.00
+[2026-04-01 22:54:03] INFO     [depth=6] Epoch 063/150 | β=1.000 | lr=6.38e-04 | train=1759.47 | val=1272.66
+[2026-04-01 22:54:04] INFO     [depth=6] Epoch 064/150 | β=1.000 | lr=6.28e-04 | train=1668.30 | val=1299.93
+[2026-04-01 22:54:04] INFO     [depth=6] Epoch 065/150 | β=1.000 | lr=6.18e-04 | train=1723.85 | val=1342.17
+[2026-04-01 22:54:05] INFO     [depth=6] Epoch 066/150 | β=1.000 | lr=6.08e-04 | train=1686.51 | val=1499.66
+[2026-04-01 22:54:05] INFO     [depth=6] Epoch 067/150 | β=1.000 | lr=5.98e-04 | train=1819.15 | val=1446.42
+[2026-04-01 22:54:06] INFO     [depth=6] Epoch 068/150 | β=1.000 | lr=5.88e-04 | train=1754.10 | val=1426.15
+[2026-04-01 22:54:06] INFO     [depth=6] Epoch 069/150 | β=1.000 | lr=5.77e-04 | train=1729.18 | val=1368.43
+[2026-04-01 22:54:07] INFO     [depth=6] Epoch 070/150 | β=1.000 | lr=5.67e-04 | train=1729.05 | val=1441.26
+[2026-04-01 22:54:07] INFO     [depth=6] Early stopping at epoch 70, best=45
+[2026-04-01 22:54:07] INFO     [depth=6] Training complete. Best epoch: 45, val: 1191.4896
+[2026-04-01 22:54:07] INFO     [depth=6] MSE=0.007780, PSNR=21.16, SSIM=0.9565
+[2026-04-01 22:54:08] INFO     
+[2026-04-01 22:54:08] INFO     ======================================================================
+[2026-04-01 22:54:08] INFO     Exp1 Hindi: Single Font, Single Letter (akshar, letter a) COMPLETE — Artifacts:
+[2026-04-01 22:54:08] INFO     ======================================================================
+[2026-04-01 22:54:08] INFO       reports/auxiliary_classifier_report.json
+[2026-04-01 22:54:08] INFO       reports/dataset_quality_report.json
+[2026-04-01 22:54:08] INFO       reports/depth_scaling_comparison.md
+[2026-04-01 22:54:08] INFO       reports/evaluation_matrix.md
+[2026-04-01 22:54:08] INFO       reports/gaussian_analysis.json
+[2026-04-01 22:54:08] INFO       reports/metrics_summary.json
+[2026-04-01 22:54:08] INFO       model/depth4/best_model.pt
+[2026-04-01 22:54:08] INFO       model/depth4/final_model.pt
+[2026-04-01 22:54:08] INFO       model/depth5/best_model.pt
+[2026-04-01 22:54:08] INFO       model/depth5/final_model.pt
+[2026-04-01 22:54:08] INFO       model/depth6/best_model.pt
+[2026-04-01 22:54:08] INFO       model/depth6/final_model.pt
+[2026-04-01 22:54:08] INFO       plots/beta_schedule.png
+[2026-04-01 22:54:08] INFO       plots/confusion_matrix_point_size.png
+[2026-04-01 22:54:08] INFO       plots/depth5/beta_schedule.png
+[2026-04-01 22:54:08] INFO       plots/depth5/latent_space_2d.png
+[2026-04-01 22:54:08] INFO       plots/depth5/loss_kl.png
+[2026-04-01 22:54:08] INFO       plots/depth5/loss_recon.png
+[2026-04-01 22:54:08] INFO       plots/depth5/loss_total.png
+[2026-04-01 22:54:08] INFO       plots/depth5/lr_schedule.png
+[2026-04-01 22:54:08] INFO       plots/depth5/reconstructions.png
+[2026-04-01 22:54:08] INFO       plots/depth6/beta_schedule.png
+[2026-04-01 22:54:08] INFO       plots/depth6/latent_space_2d.png
+[2026-04-01 22:54:08] INFO       plots/depth6/loss_kl.png
+[2026-04-01 22:54:08] INFO       plots/depth6/loss_recon.png
+[2026-04-01 22:54:08] INFO       plots/depth6/loss_total.png
+[2026-04-01 22:54:08] INFO       plots/depth6/lr_schedule.png
+[2026-04-01 22:54:08] INFO       plots/depth6/reconstructions.png
+[2026-04-01 22:54:08] INFO       plots/gaussian_samples.png
+[2026-04-01 22:54:08] INFO       plots/latent_gaussian_fit.png
+[2026-04-01 22:54:08] INFO       plots/latent_space_2d.png
+[2026-04-01 22:54:08] INFO       plots/latent_traversal_grid.png
+[2026-04-01 22:54:08] INFO       plots/loss_kl.png
+[2026-04-01 22:54:08] INFO       plots/loss_recon.png
+[2026-04-01 22:54:08] INFO       plots/loss_total.png
+[2026-04-01 22:54:08] INFO       plots/lr_schedule.png
+[2026-04-01 22:54:08] INFO       plots/random_samples.png
+[2026-04-01 22:54:08] INFO       plots/reconstructions.png
+[2026-04-01 22:54:08] INFO       logs/training.log
+[2026-04-01 22:54:08] INFO       logs/training_history.csv
+[2026-04-01 22:54:08] INFO       logs/training_history_depth5.csv
+[2026-04-01 22:54:08] INFO       logs/training_history_depth6.csv
+[2026-04-01 22:54:08] INFO     ======================================================================

@@ -1,0 +1,88 @@
+{
+  "config": {
+    "experiment_name": "Exp1 Hindi: Single Font, Single Letter (akshar, letter a)",
+    "dataset_root": "dataset",
+    "font_names": [
+      "akshar"
+    ],
+    "letter_names": [
+      "a"
+    ],
+    "point_sizes": [
+      "10pt",
+      "14pt",
+      "18pt",
+      "22pt"
+    ],
+    "image_size": 128,
+    "batch_size": 16,
+    "latent_dim": 2,
+    "lr": 0.001,
+    "epochs": 150,
+    "early_stopping_patience": 25,
+    "beta_max": 1.0,
+    "kl_warmup_epochs": 25,
+    "grad_clip_norm": 5.0,
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "seed": 42,
+    "base_depth": 4,
+    "depth_variants": [
+      5,
+      6
+    ],
+    "aux_hidden": 64,
+    "aux_lr": 0.001,
+    "aux_epochs": 200,
+    "aux_patience": 30,
+    "aux_dropout": 0.3,
+    "classification_targets": [
+      [
+        "point_size",
+        4
+      ]
+    ],
+    "output_dir": "results/exp1_hindi_single_font_single_letter",
+    "dpi": 300
+  },
+  "best_epoch": 65,
+  "param_count": 1494085,
+  "test_metrics": {
+    "global": {
+      "bce": 707.3416137695312,
+      "kld": 25.593149185180664,
+      "total": 732.9347534179688,
+      "mse": 0.00416060583665967,
+      "psnr": 23.969442206806605,
+      "ssim": 0.9768142279390961
+    },
+    "per_target": {
+      "point_size": {
+        "10pt": {
+          "mse": 0.0035624596445510783,
+          "psnr": 24.491847384454136,
+          "ssim": 0.9802759061185031,
+          "count": 3
+        },
+        "14pt": {
+          "mse": 0.005216854314009349,
+          "psnr": 22.86646203803976,
+          "ssim": 0.9700978154502354,
+          "count": 3
+        },
+        "18pt": {
+          "mse": 0.004645453998818994,
+          "psnr": 23.57661038626056,
+          "ssim": 0.974618315091634,
+          "count": 3
+        },
+        "22pt": {
+          "mse": 0.0032176553892592588,
+          "psnr": 24.942849018471943,
+          "ssim": 0.9822648750960123,
+          "count": 3
+        }
+      }
+    }
+  }
+}

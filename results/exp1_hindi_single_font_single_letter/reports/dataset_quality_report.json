@@ -1,0 +1,59 @@
+{
+  "scope": {
+    "fonts": [
+      "akshar"
+    ],
+    "letters": [
+      "a"
+    ],
+    "point_sizes": [
+      "10pt",
+      "14pt",
+      "18pt",
+      "22pt"
+    ],
+    "size": "128x128"
+  },
+  "integrity": {
+    "total": 80,
+    "corrupt": 0,
+    "modes": {
+      "RGB": 80
+    },
+    "resolutions": {
+      "128x128": 80
+    },
+    "duplicates": 0,
+    "unique": 80
+  },
+  "counts_by_group": {
+    "akshar/a/10pt": 20,
+    "akshar/a/14pt": 20,
+    "akshar/a/18pt": 20,
+    "akshar/a/22pt": 20
+  },
+  "pixel_stats": {
+    "intensity_mean": {
+      "count": 80,
+      "mean": 0.8867252364754676,
+      "std": 0.006402081090397357,
+      "min": 0.8718467354774475,
+      "max": 0.900956928730011
+    },
+    "non_white": {
+      "count": 80,
+      "mean": 0.12999801635742186,
+      "std": 0.006313687870106506,
+      "min": 0.11553955078125,
+      "max": 0.144775390625
+    },
+    "sharpness": {
+      "count": 80,
+      "mean": 2573.1491424560545,
+      "std": 77.44656023998145,
+      "min": 2380.3798828125,
+      "max": 2747.28076171875
+    }
+  },
+  "duplicate_groups": []
+}

@@ -1,0 +1,125 @@
+{
+  "target_scope": {
+    "fonts": [
+      "lohit_telugu",
+      "pothana2000"
+    ],
+    "letter": "a",
+    "point_sizes": [
+      "10pt",
+      "14pt",
+      "18pt",
+      "22pt"
+    ],
+    "resized_to": "64x64"
+  },
+  "overall": {
+    "total_records_scanned": 160,
+    "corrupt_file_count": 0,
+    "corrupt_files": [],
+    "mode_distribution": {
+      "RGB": 160
+    },
+    "resolution_distribution": {
+      "128x128": 160
+    },
+    "duplicate_hash_groups": 0,
+    "duplicate_file_count": 0,
+    "unique_hash_count": 160
+  },
+  "counts": {
+    "by_source": {
+      "lohit_telugu": 80,
+      "pothana2000": 80
+    },
+    "by_source_and_size": {
+      "lohit_telugu:10pt": 20,
+      "lohit_telugu:14pt": 20,
+      "lohit_telugu:18pt": 20,
+      "lohit_telugu:22pt": 20,
+      "pothana2000:10pt": 20,
+      "pothana2000:14pt": 20,
+      "pothana2000:18pt": 20,
+      "pothana2000:22pt": 20
+    }
+  },
+  "pixel_statistics": {
+    "intensity_mean": {
+      "count": 160,
+      "mean": 0.8967540174722671,
+      "std": 0.007642074206479814,
+      "min": 0.870246410369873,
+      "max": 0.9171013236045837
+    },
+    "intensity_std": {
+      "count": 160,
+      "mean": 0.28307805862277746,
+      "std": 0.01034640991890968,
+      "min": 0.2551025152206421,
+      "max": 0.31747937202453613
+    },
+    "non_white_ratio": {
+      "count": 160,
+      "mean": 0.13740234375,
+      "std": 0.007858939429891767,
+      "min": 0.116455078125,
+      "max": 0.16748046875
+    },
+    "sharpness_laplacian_var": {
+      "count": 160,
+      "mean": 4022.575408935547,
+      "std": 111.0004238726776,
+      "min": 3723.9541015625,
+      "max": 4318.5546875
+    },
+    "center_of_mass_x": {
+      "count": 160,
+      "mean": 32.90783134140607,
+      "std": 1.885263249677787,
+      "min": 30.76116051378784,
+      "max": 35.03938801039228
+    },
+    "center_of_mass_y": {
+      "count": 160,
+      "mean": 31.058873296403362,
+      "std": 0.3847230500667713,
+      "min": 30.47385821703385,
+      "max": 31.80313649295677
+    }
+  },
+  "by_source_features": {
+    "lohit_telugu": {
+      "non_white_ratio": {
+        "count": 80,
+        "mean": 0.1327972412109375,
+        "std": 0.005601862867434352,
+        "min": 0.116455078125,
+        "max": 0.14599609375
+      },
+      "sharpness_laplacian_var": {
+        "count": 80,
+        "mean": 4040.022351074219,
+        "std": 98.5324819648403,
+        "min": 3795.60546875,
+        "max": 4318.5546875
+      }
+    },
+    "pothana2000": {
+      "non_white_ratio": {
+        "count": 80,
+        "mean": 0.1420074462890625,
+        "std": 0.0070520246418539585,
+        "min": 0.123046875,
+        "max": 0.16748046875
+      },
+      "sharpness_laplacian_var": {
+        "count": 80,
+        "mean": 4005.128466796875,
+        "std": 119.68603351141806,
+        "min": 3723.9541015625,
+        "max": 4312.0068359375
+      }
+    }
+  },
+  "duplicate_groups": []
+}

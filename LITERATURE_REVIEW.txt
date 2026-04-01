@@ -1,0 +1,265 @@
+================================================================================
+LITERATURE REVIEW — GENERATIVE MODELS FOR INDIC SCRIPTS
+================================================================================
+Report context:
+  Title      : Generative Models for Indic Scripts
+  Problem    : Design of Variational Autoencoders for Indic Scripts (Telugu & Hindi)
+  Motivation : Complexity of language/script
+  Scope      : Printed font-rendered vowels; VAE latent space; generation
+  Future work: Class separability, transfer learning to handwritten
+
+================================================================================
+LITERATURE REVIEW TABLE
+================================================================================
+(Topic | Title | Description | Venue | Link)
+
+--------------------------------------------------------------------------------
+1. VAE for handwriting / modality conversion
+--------------------------------------------------------------------------------
+Topic     : Cross-modal VAE; shared latent space; handwritten character
+Title     : Modality Conversion of Handwritten Patterns by Cross Variational Autoencoders
+Description: Proposes Cross-VAE: two VAEs with a shared latent space for converting between online and offline handwritten characters. Uses reconstruction loss, distribution loss, and a novel “space sharing loss.” Directly relevant to latent-space design for script modalities.
+Venue     : ICDAR 2019 (International Conference on Document Analysis and Recognition)
+Links     : https://ieeexplore.ieee.org/document/8978197
+            https://arxiv.org/abs/1906.06142
+
+--------------------------------------------------------------------------------
+2. VAE for character generation and feature extraction
+--------------------------------------------------------------------------------
+Topic     : Variational Autoencoder; character generation; handwriting feature extraction
+Title     : The Character Generation in Handwriting Feature Extraction Using Variational AutoEncoder
+Description: Uses VAE for character generation in the context of handwriting feature extraction. Supports using VAEs both for representation learning and for generating character data.
+Venue     : IEEE (conference)
+Links     : https://ieeexplore.ieee.org/document/8270100
+
+--------------------------------------------------------------------------------
+3. Conditional VAE for handwritten characters
+--------------------------------------------------------------------------------
+Topic     : Conditional VAE; categorical labels; controlled character generation
+Title     : Learning VAE with Categorical Labels for Generating Conditional Handwritten Characters
+Description: Extends VAE with categorical labels to generate conditional handwritten characters, enabling controlled generation by class. Relevant to alphabet-conditioned or script-conditioned generation.
+Venue     : IEEE (conference)
+Links     : https://ieeexplore.ieee.org/document/9511404
+
+--------------------------------------------------------------------------------
+4. Autoencoder for Indic script (Telugu) — direct relevance
+--------------------------------------------------------------------------------
+Topic     : Auto-encoder; offline character recognition; Telugu script
+Title     : A System for Offline Character Recognition Using Auto-encoder Networks
+Description: Stacked auto-encoders for offline Telugu character recognition. Layer-wise unsupervised pre-training and supervised fine-tuning; ensemble improves accuracy (e.g. ~95% on consonants and vowel modifiers). Direct precedent for autoencoder-based Indic (Telugu) character representation.
+Venue     : Springer (ICONIP 2012), LNCS
+Links     : https://link.springer.com/chapter/10.1007/978-3-642-34478-7_12
+
+--------------------------------------------------------------------------------
+5. Script-independent handwritten character recognition (Indic: Bengali, Hindi)
+--------------------------------------------------------------------------------
+Topic     : Deep learning; script-independent HCR; Indic scripts; transfer learning
+Title     : HCR-Net: A Deep Learning Based Script Independent Handwritten Character Recognition Network
+Description: Script-independent handwritten character recognition network evaluated on 40 datasets including Bangla and Hindi; transfer learning and 26 new benchmarks with up to 11% improvement. Relevant to multi-script (Indic) and possible transfer to handwritten.
+Venue     : Springer — Multimedia Tools and Applications
+Links     : https://link.springer.com/article/10.1007/s11042-024-18655-5
+            https://arxiv.org/abs/2108.06663
+
+--------------------------------------------------------------------------------
+6. Discriminative autoencoder for character recognition
+--------------------------------------------------------------------------------
+Topic     : Discriminative autoencoder; feature extraction; character recognition
+Title     : Discriminative Autoencoder for Feature Extraction: Application to Character Recognition
+Description: Stacked discriminative autoencoder for feature extraction in character recognition; representations improve classification (e.g. with K-NN). Supports discussion of autoencoder variants (discriminative vs generative) in your methodology.
+Venue     : Springer — Neural Processing Letters
+Links     : https://link.springer.com/article/10.1007/s11063-018-9894-5
+
+--------------------------------------------------------------------------------
+7. Generative character model for recognition training (Y-Autoencoder)
+--------------------------------------------------------------------------------
+Topic     : Character generation; Y-Autoencoder; data augmentation for recognition
+Title     : Handwritten Character Generation using Y-Autoencoder for Character Recognition Model Training
+Description: Y-Autoencoder with AdaIN generates multiple character variants from single images without paired labels; used to augment training data and improve recognizer F1 (e.g. 0.87→0.93 on Japanese Hiragana). Relevant to “generative models for script” and future handwritten augmentation.
+Venue     : ACL Anthology — LREC 2022
+Links     : https://aclanthology.org/2022.lrec-1.799/
+
+--------------------------------------------------------------------------------
+8. Indic handwritten text recognition dataset (multi-script)
+--------------------------------------------------------------------------------
+Topic     : Indic scripts; handwritten text recognition; benchmark dataset
+Title     : IIIT-Indic-HW-Words: A Dataset for Indic Handwritten Text Recognition
+Description: Large-scale dataset: 872K handwritten word instances in 8 Indic scripts (e.g. Bengali, Hindi, Telugu, Tamil, Kannada) from 135 writers. Standard reference for Indic HTR and for future work on transfer to handwritten.
+Venue     : Springer — ICDAR 2021 (LNCS)
+Links     : https://link.springer.com/chapter/10.1007/978-3-030-86337-1_30
+            https://cvit.iiit.ac.in/research/projects/cvit-projects/iiit-indic-hw-words
+
+--------------------------------------------------------------------------------
+9. Handwritten text line recognition (IJDAR)
+--------------------------------------------------------------------------------
+Topic     : Handwritten text recognition; document analysis; recurrent networks
+Title     : On the improvement of handwritten text line recognition with octave convolutional recurrent neural networks
+Description: Octave convolutional recurrent neural networks for handwritten text line recognition; state-of-the-art on IAM, RIMES, ICFHR READ; no word segmentation. Reputed venue for document analysis and HTR methodology.
+Venue     : International Journal on Document Analysis and Recognition (IJDAR), Springer
+Links     : https://link.springer.com/article/10.1007/s10032-024-00460-3
+
+--------------------------------------------------------------------------------
+10. Page-level dataset for 11 Indic scripts
+--------------------------------------------------------------------------------
+Topic     : Indic scripts; handwritten document dataset; script identification
+Title     : PHDIndic_11: Page-Level Handwritten Document Image Dataset of 11 Official Indic Scripts for Script Identification
+Description: Page-level dataset of 11 official Indic scripts (Bangla, Devanagari, Roman, Urdu, Oriya, Gurumukhi, Gujarati, Tamil, Telugu, Malayalam, Kannada); 1,458 pages, 463 writers. Supports script identification and multi-script document analysis.
+Venue     : Springer — Multimedia Tools and Applications
+Links     : https://link.springer.com/article/10.1007/s11042-017-4373-y
+
+--------------------------------------------------------------------------------
+11. Deep learning for word-level Indic script identification
+--------------------------------------------------------------------------------
+Topic     : Indic script identification; word-level; deep learning
+Title     : Deep Learning for Word-Level Handwritten Indic Script Identification
+Description: Word-level handwritten Indic script identification using deep learning (e.g. CNN with multiscale features). Complements character-level VAE work and script identification in multilingual documents.
+Venue     : Springer (conference chapter)
+Links     : https://link.springer.com/chapter/10.1007/978-981-16-0507-9_42
+
+--------------------------------------------------------------------------------
+12. Foundational VAE (methodology reference)
+--------------------------------------------------------------------------------
+Topic     : Variational autoencoder; latent variable model; generative model
+Title     : Auto-Encoding Variational Bayes
+Description: Original VAE: stochastic variational inference for continuous latent variables, reparameterization trick, and recognition model (encoder). Standard reference for VAE methodology and notation in your design section.
+Venue     : ICLR 2014; arXiv
+Links     : https://arxiv.org/abs/1312.6114
+            https://research.google/pubs/auto-encoding-variational-bayes/
+
+================================================================================
+CHARACTER GENERATION — ADDITIONAL PAPERS (FOCUSED)
+================================================================================
+
+--------------------------------------------------------------------------------
+13. GAN for arbitrary-length handwriting imitation (style + content)
+--------------------------------------------------------------------------------
+Topic     : Handwriting generation; GAN; disentangled style; arbitrary-length text
+Title     : HiGAN: Handwriting Imitation Conditioned on Arbitrary-Length Texts and Disentangled Styles
+Description: GAN that synthesizes realistic handwritten text conditioned on arbitrary text and disentangled calligraphic styles (skew, slant, roundness, ligature, stroke-width). Not limited to predefined vocabulary. Strong character/text generation baseline.
+Venue     : AAAI 2021 (Association for the Advancement of Artificial Intelligence)
+Links     : https://ojs.aaai.org/index.php/AAAI/article/view/16917
+            https://github.com/ganji15/HiGAN
+
+--------------------------------------------------------------------------------
+14. Text and style conditioned GAN for offline handwriting lines
+--------------------------------------------------------------------------------
+Topic     : Offline handwriting line generation; GAN + autoencoder; legibility loss
+Title     : Text and Style Conditioned GAN for Generation of Offline Handwriting Lines
+Description: Generates full lines of offline handwriting from text and latent style; combines GAN with autoencoder and uses a pre-trained recognition network as auxiliary loss to ensure legibility. Human studies show plausible output. Adobe/BYU.
+Venue     : BMVC 2020 (British Machine Vision Conference)
+Links     : https://arxiv.org/abs/2009.00678
+            https://www.bmva.org.uk/bmvc/2020/papers/0815
+            https://github.com/herobd/handwriting_line_generation
+
+--------------------------------------------------------------------------------
+15. Data incubation — synthesizing missing data for handwriting recognition
+--------------------------------------------------------------------------------
+Topic     : Synthetic handwriting; controllable content and style; recognition improvement
+Title     : Data Incubation: Synthesizing Missing Data for Handwriting Recognition
+Description: Controllable generative model for handwriting with factorized style and content; synthesizes underrepresented variations (cursive, slanted, URLs). Mixing synthetic with real data achieved 66% reduction in character error rate. Apple Research.
+Venue     : ICASSP 2022 (IEEE)
+Links     : https://arxiv.org/abs/2110.07040
+            https://machinelearning.apple.com/research/data-incubation
+
+--------------------------------------------------------------------------------
+16. Style-consistent font generation (GlyphGAN) — Elsevier
+--------------------------------------------------------------------------------
+Topic     : Font/glyph generation; GAN; character + style disentanglement
+Title     : GlyphGAN: Style-Consistent Font Generation Based on Generative Adversarial Networks
+Description: GAN for font generation: character class vector (one-hot) + style vector (random) as input; independently controls character identity and style for style-consistent glyphs across the character set. Directly relevant to script/glyph generation.
+Venue     : Knowledge-Based Systems (Elsevier), Vol. 186, December 2019
+Links     : https://arxiv.org/abs/1905.12502
+            https://kyushu-u.elsevierpure.com/en/publications/glyphgan-style-consistent-font-generation-based-on-generative-adv
+
+--------------------------------------------------------------------------------
+17. Learned representation for scalable vector graphics (font/glyph VAE-style)
+--------------------------------------------------------------------------------
+Topic     : Font generation; vector graphics; latent representation; style propagation
+Title     : A Learned Representation for Scalable Vector Graphics
+Description: Sequential generative model for SVG that learns font-drawing process (moveTo, lineTo, cubicBezier); scale-invariant; latent space allows style propagation and manipulation. Google Brain; practical for font design. Strong link to glyph/character generation.
+Venue     : ICCV 2019 (IEEE/CVF)
+Links     : https://arxiv.org/abs/1904.02632
+            https://openaccess.thecvf.com/content_ICCV_2019/html/Lopes_A_Learned_Representation_for_Scalable_Vector_Graphics_ICCV_2019_paper.html
+            https://magenta.tensorflow.org/svg-vae
+
+--------------------------------------------------------------------------------
+18. Synthetic handwritten historical documents with OCR-constrained GANs
+--------------------------------------------------------------------------------
+Topic     : Synthetic document generation; GAN; OCR constraints; ground-truth preservation
+Title     : Generating Synthetic Handwritten Historical Documents With OCR Constrained GANs
+Description: Two-step framework: template documents + style transfer from unlabeled historical images while preserving text and layout. Produces synthetic labeled data for document analysis; outperforms baselines in pre-training. Relevant to synthetic script data.
+Venue     : arXiv / Document analysis (DIVA-DIA)
+Links     : https://arxiv.org/abs/2103.08236
+            https://github.com/DIVA-DIA/Generating-Synthetic-Handwritten-Historical-Documents
+
+--------------------------------------------------------------------------------
+19. Interpretable generative model for handwritten digit synthesis
+--------------------------------------------------------------------------------
+Topic     : Handwritten digit synthesis; interpretable generative model; PCA-based
+Title     : An Interpretable Generative Model for Handwritten Digits Synthesis
+Description: Multi-stage PCA-based generative model for digit images (whitening/coloring); no backpropagation; interpretable. Comparable to GANs/VAEs on MNIST. Useful for discussing alternative generative formulations alongside VAE.
+Venue     : IEEE (conference)
+Links     : https://ieeexplore.ieee.org/document/8803129
+            https://arxiv.org/abs/1811.04507
+
+--------------------------------------------------------------------------------
+20. Disentangling writer and character styles for handwriting generation (CVPR)
+--------------------------------------------------------------------------------
+Topic     : Handwriting generation; style disentanglement; writer-level vs character-level style
+Title     : Disentangling Writer and Character Styles for Handwriting Generation
+Description: Style-Disentangled Transformer (SDT): two contrastive objectives for writer-level style (global) and character-level style (per-character variation). Generates stylized online handwritten characters; validated on multiple scripts. CVPR 2023.
+Venue     : CVPR 2023 (IEEE/CVF)
+Links     : https://arxiv.org/abs/2303.14736
+            https://openaccess.thecvf.com/CVPR2023
+            https://github.com/dailenson/SDT
+
+================================================================================
+SUMMARY BY VENUE
+================================================================================
+  IEEE Xplore    : [1] Cross-VAE, [2] VAE character generation, [3] Conditional VAE, [19] Interpretable digit synthesis
+  Springer       : [4] Telugu autoencoder, [5] HCR-Net Indic, [6] Discriminative AE,
+                   [8] IIIT-Indic-HW-Words, [9] IJDAR OctCRNN, [10] PHDIndic_11,
+                   [11] Indic script identification
+  IJDAR (Springer): [9] Handwritten text line recognition
+  ACL/LREC       : [7] Y-Autoencoder character generation
+  Foundational   : [12] Kingma & Welling VAE
+  CHARACTER GEN  : [13] HiGAN (AAAI), [14] Text+Style GAN (BMVC), [15] Data Incubation (ICASSP),
+                   [16] GlyphGAN (Elsevier), [17] SVG/font (ICCV), [18] OCR-constrained GAN,
+                   [19] Interpretable digits (IEEE), [20] SDT (CVPR)
+
+================================================================================
+SUGGESTED USE IN REPORT
+================================================================================
+  • Introduction / motivation: [5], [8], [10] — complexity and diversity of Indic scripts.
+  • Literature review table: Use rows 1–20 (topic, title, description, link).
+  • Methodology / design: [12] VAE; [1], [2], [3] VAE for script/character; [4], [6] autoencoders for recognition.
+  • Character generation (emphasised): [1]–[3], [7], [13]–[20] — VAE, GAN, glyph/font, synthetic data, style disentanglement.
+  • Dataset: [8], [10] for context and future handwritten/transfer work.
+  • Future work (class separability, transfer to handwritten): [5], [7], [8], [11], [15], [18], [20].
+
+================================================================================
+REFERENCES (BIB-FRIENDLY SHORT CITATIONS)
+================================================================================
+[1] Sumi et al., Modality Conversion of Handwritten Patterns by Cross Variational Autoencoders, ICDAR 2019.
+[2] (IEEE) Character Generation in Handwriting Feature Extraction Using Variational AutoEncoder.
+[3] (IEEE) Learning VAE with Categorical Labels for Generating Conditional Handwritten Characters.
+[4] (Springer LNCS) A System for Offline Character Recognition Using Auto-encoder Networks, ICONIP 2012.
+[5] Chauhan et al., HCR-Net: A deep learning based script independent HCR network, MTAP 2024.
+[6] Discriminative Autoencoder for Feature Extraction, Neural Processing Letters, Springer.
+[7] Handwritten Character Generation using Y-Autoencoder, LREC 2022.
+[8] IIIT-Indic-HW-Words, ICDAR 2021, Springer LNCS.
+[9] Castro et al., Octave convolutional recurrent neural networks for HTR, IJDAR 2024.
+[10] PHDIndic_11 dataset, Multimedia Tools and Applications, Springer.
+[11] Deep Learning for Word-Level Handwritten Indic Script Identification, Springer.
+[12] Kingma & Welling, Auto-Encoding Variational Bayes, ICLR 2014.
+[13] HiGAN: Handwriting Imitation Conditioned on Arbitrary-Length Texts and Disentangled Styles, AAAI 2021.
+[14] Davis et al., Text and Style Conditioned GAN for Generation of Offline Handwriting Lines, BMVC 2020.
+[15] Chang et al. (Apple), Data Incubation: Synthesizing Missing Data for Handwriting Recognition, ICASSP 2022.
+[16] Hayashi et al., GlyphGAN: Style-Consistent Font Generation Based on GANs, Knowledge-Based Systems (Elsevier) 2019.
+[17] Lopes et al., A Learned Representation for Scalable Vector Graphics, ICCV 2019.
+[18] Vögtlin et al., Generating Synthetic Handwritten Historical Documents With OCR Constrained GANs, arXiv 2021.
+[19] An Interpretable Generative Model for Handwritten Digits Synthesis, IEEE.
+[20] Disentangling Writer and Character Styles for Handwriting Generation (SDT), CVPR 2023.
+
+================================================================================
+END OF LITERATURE REVIEW
+================================================================================

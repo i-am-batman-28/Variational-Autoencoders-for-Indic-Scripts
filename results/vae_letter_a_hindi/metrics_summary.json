@@ -1,0 +1,33 @@
+{
+  "config": {
+    "dataset_root": "dataset",
+    "output_dir": "results/vae_letter_a_hindi",
+    "image_size": 128,
+    "batch_size": 16,
+    "latent_dim": 8,
+    "epochs": 160,
+    "lr": 0.001,
+    "beta_max": 0.5,
+    "kl_warmup_epochs": 40,
+    "early_stopping_patience": 40,
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "seed": 42,
+    "recon_log_interval": 10
+  },
+  "split_sizes": {
+    "train": 112,
+    "val": 24,
+    "test": 24
+  },
+  "test_metrics": {
+    "bce": 502.4212341308594,
+    "kld": 33.40848159790039,
+    "total": 519.1254730224609,
+    "mse": 0.0007365476594713982,
+    "psnr": 32.173742640333096,
+    "ssim": 0.9965726718053262
+  },
+  "best_checkpoint_epoch": 160,
+  "best_val_total": 569.7362060546875
+}

@@ -1,0 +1,40 @@
+{
+  "dataset_root": "dataset_Rohit",
+  "font_names": [
+    "lohit_telugu"
+  ],
+  "letter_names": [
+    "a"
+  ],
+  "point_sizes": [
+    "10pt",
+    "14pt",
+    "18pt",
+    "22pt"
+  ],
+  "image_size": 128,
+  "batch_size": 16,
+  "latent_dim": 2,
+  "lr": 0.001,
+  "epochs": 150,
+  "early_stopping_patience": 25,
+  "beta_max": 1.0,
+  "kl_warmup_epochs": 25,
+  "grad_clip_norm": 5.0,
+  "train_ratio": 0.7,
+  "val_ratio": 0.15,
+  "seed": 42,
+  "base_depth": 4,
+  "depth_variants": [
+    5,
+    6
+  ],
+  "aux_hidden": 64,
+  "aux_lr": 0.001,
+  "aux_epochs": 200,
+  "aux_patience": 30,
+  "aux_dropout": 0.3,
+  "output_dir": "results/exp1_single_font_single_letter",
+  "dpi": 300,
+  "recon_log_interval": 10
+}

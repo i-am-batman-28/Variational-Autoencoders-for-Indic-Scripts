@@ -1,0 +1,61 @@
+{
+  "experiment_name": "Exp2: Single Font, Multi Letter (lohit_telugu, 13 vowels)",
+  "dataset_root": "dataset_Rohit",
+  "font_names": [
+    "lohit_telugu"
+  ],
+  "letter_names": [
+    "a",
+    "aa",
+    "i",
+    "ii",
+    "u",
+    "uu",
+    "ri",
+    "e",
+    "ai",
+    "o",
+    "au",
+    "am",
+    "aha"
+  ],
+  "point_sizes": [
+    "10pt",
+    "14pt",
+    "18pt",
+    "22pt"
+  ],
+  "image_size": 128,
+  "batch_size": 16,
+  "latent_dim": 8,
+  "lr": 0.001,
+  "epochs": 200,
+  "early_stopping_patience": 30,
+  "beta_max": 0.5,
+  "kl_warmup_epochs": 30,
+  "grad_clip_norm": 5.0,
+  "train_ratio": 0.7,
+  "val_ratio": 0.15,
+  "seed": 42,
+  "base_depth": 4,
+  "depth_variants": [
+    5
+  ],
+  "aux_hidden": 64,
+  "aux_lr": 0.001,
+  "aux_epochs": 200,
+  "aux_patience": 30,
+  "aux_dropout": 0.3,
+  "classification_targets": [
+    [
+      "letter",
+      13
+    ],
+    [
+      "point_size",
+      4
+    ]
+  ],
+  "output_dir": "results/exp2_single_font_multi_letter",
+  "dpi": 300
+}
