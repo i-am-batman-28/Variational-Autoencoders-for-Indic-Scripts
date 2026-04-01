@@ -1,0 +1,14 @@
+[2026-04-01 22:46:35] INFO     ======================================================================
+[2026-04-01 22:46:35] INFO     EXPERIMENT: Exp2: Single Font, Multi Letter (lohit_telugu, 13 vowels)
+[2026-04-01 22:46:35] INFO     ======================================================================
+[2026-04-01 22:46:35] INFO     Step 1: Collecting data and quality audit
+[2026-04-01 22:46:35] INFO     Collected 1040 images
+[2026-04-01 22:46:36] INFO     Step 2: Splitting data
+[2026-04-01 22:46:36] INFO     Split: train=728, val=156, test=156
+[2026-04-01 22:46:36] INFO     Classification targets: {'letter': 13, 'point_size': 4}
+[2026-04-01 22:46:36] INFO       letter: ['a', 'aa', 'aha', 'ai', 'am', 'au', 'e', 'i', 'ii', 'o', 'ri', 'u', 'uu']
+[2026-04-01 22:46:36] INFO       point_size: ['10pt', '14pt', '18pt', '22pt']
+[2026-04-01 22:46:36] INFO     Device: cpu
+[2026-04-01 22:46:36] INFO     Step 3: Training baseline model (depth=4)
+[2026-04-01 22:46:36] INFO     [depth=4] Parameters: 1,789,009, spatial: 8x8
+[2026-04-01 22:46:43] INFO     [depth=4] Epoch 001/200 | β=0.017 | lr=1.00e-03 | train=4676.07 | val=2263.25

@@ -1,0 +1,57 @@
+{
+  "test_accuracy": 0.25,
+  "best_val_accuracy": 0.25,
+  "per_class": {
+    "10pt": {
+      "precision": 0.25,
+      "recall": 1.0,
+      "f1": 0.4,
+      "support": 3
+    },
+    "14pt": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 3
+    },
+    "18pt": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 3
+    },
+    "22pt": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 3
+    }
+  },
+  "confusion_matrix": [
+    [
+      3,
+      0,
+      0,
+      0
+    ],
+    [
+      3,
+      0,
+      0,
+      0
+    ],
+    [
+      3,
+      0,
+      0,
+      0
+    ],
+    [
+      3,
+      0,
+      0,
+      0
+    ]
+  ],
+  "classification_report": "              precision    recall  f1-score   support\n\n        10pt       0.25      1.00      0.40         3\n        14pt       0.00      0.00      0.00         3\n        18pt       0.00      0.00      0.00         3\n        22pt       0.00      0.00      0.00         3\n\n    accuracy                           0.25        12\n   macro avg       0.06      0.25      0.10        12\nweighted avg       0.06      0.25      0.10        12\n"
+}

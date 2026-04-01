@@ -1,0 +1,125 @@
+{
+  "target_scope": {
+    "fonts": [
+      "akshar",
+      "mangal"
+    ],
+    "letter": "a",
+    "point_sizes": [
+      "10pt",
+      "14pt",
+      "18pt",
+      "22pt"
+    ],
+    "resized_to": "128x128"
+  },
+  "overall": {
+    "total_records_scanned": 160,
+    "corrupt_file_count": 0,
+    "corrupt_files": [],
+    "mode_distribution": {
+      "RGB": 160
+    },
+    "resolution_distribution": {
+      "128x128": 160
+    },
+    "duplicate_hash_groups": 0,
+    "duplicate_file_count": 0,
+    "unique_hash_count": 160
+  },
+  "counts": {
+    "by_source": {
+      "akshar": 80,
+      "mangal": 80
+    },
+    "by_source_and_size": {
+      "akshar:10pt": 20,
+      "akshar:14pt": 20,
+      "akshar:18pt": 20,
+      "akshar:22pt": 20,
+      "mangal:10pt": 20,
+      "mangal:14pt": 20,
+      "mangal:18pt": 20,
+      "mangal:22pt": 20
+    }
+  },
+  "pixel_statistics": {
+    "intensity_mean": {
+      "count": 160,
+      "mean": 0.8644581362605095,
+      "std": 0.02331593698489832,
+      "min": 0.819462776184082,
+      "max": 0.900956928730011
+    },
+    "intensity_std": {
+      "count": 160,
+      "mean": 0.3295271508395672,
+      "std": 0.025231513314723845,
+      "min": 0.28522711992263794,
+      "max": 0.37445706129074097
+    },
+    "non_white_ratio": {
+      "count": 160,
+      "mean": 0.15319671630859374,
+      "std": 0.02428906384745987,
+      "min": 0.11553955078125,
+      "max": 0.20068359375
+    },
+    "sharpness_laplacian_var": {
+      "count": 160,
+      "mean": 2583.803890991211,
+      "std": 94.28996895290102,
+      "min": 2317.39794921875,
+      "max": 2879.484375
+    },
+    "center_of_mass_x": {
+      "count": 160,
+      "mean": 66.51054870338288,
+      "std": 0.7245114546288338,
+      "min": 65.20946339601414,
+      "max": 67.73014791611064
+    },
+    "center_of_mass_y": {
+      "count": 160,
+      "mean": 60.20144334378963,
+      "std": 1.2480889442677856,
+      "min": 58.37678047852126,
+      "max": 61.77322253281478
+    }
+  },
+  "by_source_features": {
+    "akshar": {
+      "non_white_ratio": {
+        "count": 80,
+        "mean": 0.12999801635742186,
+        "std": 0.006313687870106506,
+        "min": 0.11553955078125,
+        "max": 0.144775390625
+      },
+      "sharpness_laplacian_var": {
+        "count": 80,
+        "mean": 2573.1491424560545,
+        "std": 77.44656023998145,
+        "min": 2380.3798828125,
+        "max": 2747.28076171875
+      }
+    },
+    "mangal": {
+      "non_white_ratio": {
+        "count": 80,
+        "mean": 0.17639541625976562,
+        "std": 0.00798092925678647,
+        "min": 0.15460205078125,
+        "max": 0.20068359375
+      },
+      "sharpness_laplacian_var": {
+        "count": 80,
+        "mean": 2594.4586395263673,
+        "std": 107.49967192776997,
+        "min": 2317.39794921875,
+        "max": 2879.484375
+      }
+    }
+  },
+  "duplicate_groups": []
+}

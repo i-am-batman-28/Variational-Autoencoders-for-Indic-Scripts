@@ -1,0 +1,33 @@
+{
+  "config": {
+    "dataset_root": "dataset_Rohit",
+    "output_dir": "results/vae_letter_a_new",
+    "image_size": 64,
+    "batch_size": 16,
+    "latent_dim": 2,
+    "epochs": 120,
+    "lr": 0.001,
+    "beta_max": 1.0,
+    "kl_warmup_epochs": 20,
+    "early_stopping_patience": 20,
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "seed": 42,
+    "recon_log_interval": 10
+  },
+  "split_sizes": {
+    "train": 112,
+    "val": 24,
+    "test": 24
+  },
+  "test_metrics": {
+    "bce": 223.6606903076172,
+    "kld": 6.121007919311523,
+    "total": 229.78170013427734,
+    "mse": 0.0025839902906833836,
+    "psnr": 26.918765454785518,
+    "ssim": 0.9834259954692784
+  },
+  "best_checkpoint_epoch": 118,
+  "best_val_total": 238.6300277709961
+}

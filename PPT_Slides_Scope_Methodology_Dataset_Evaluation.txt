@@ -1,0 +1,106 @@
+================================================================================
+PPT SLIDES — SCOPE OF WORK, METHODOLOGY, DATASET COLLECTION, EVALUATION STRATEGY
+Source: Professional PPT slide script (15-slide script)
+================================================================================
+
+================================================================================
+SLIDE — SCOPE OF WORK
+================================================================================
+HEADLINE: Scope
+
+SLIDE TEXT:
+• Scripts: Hindi (Devanagari) and Telugu.
+• Character set: 13 vowels per script (a, aa, i, ii, u, uu, ri, e, ai, o, au, am, aha).
+• Data type: Printed, font-rendered characters (not handwritten in current phase).
+• Fonts: Hindi — Akshar Unicode Regular, Mangal Regular; Telugu — Pothana2000, Lohit Telugu Regular.
+• Output: Grayscale/RGB images at 128×128 pixels, character-focused with minimal background.
+• Scope for current phase: dataset creation, pipeline design, and preparation for VAE implementation.
+
+PHOTOS TO PUT:
+  • Four small character images in a row: Hindi (Akshar), Hindi (Mangal), Telugu (Pothana), Telugu (Lohit).
+    Use: test_akshar.png, test_mangal.png, test_telugu_pothana2000.png, test_telugu_lohit_telugu.png.
+  • Caption: "Fonts used: Akshar, Mangal (Hindi) | Pothana2000, Lohit Telugu (Telugu)."
+
+================================================================================
+SLIDE — METHODOLOGY
+================================================================================
+HEADLINE: Methodology
+
+SLIDE TEXT:
+• Phase 1 — Dataset: Design and generate printed character dataset for Hindi and Telugu with two fonts per script, multiple sizes, and controlled variations.
+• Phase 2 — Preprocessing: Resize to fixed resolution (128×128), normalize, optional grayscale; maintain train/validation split.
+• Phase 3 — Model: Implement convolutional encoder-decoder; VAE with reparameterization, KL divergence and reconstruction loss; tune latent dimension and architecture.
+• Phase 4 — Evaluation: Reconstruction error (MSE/BCE); visual quality of reconstructions and generated samples; latent space visualization (e.g. t-SNE) and interpolation.
+• Phase 5 — Analysis: Compare AE vs VAE; script-wise and font-wise analysis; document limitations and future work.
+
+PHOTOS TO PUT:
+  • A simple 5-step flowchart: Phase 1 (Dataset) → Phase 2 (Preprocess) → Phase 3 (Model) → Phase 4 (Evaluate) → Phase 5 (Analysis). Draw in PowerPoint or use a template.
+  • Or: One image of your pipeline — screenshot of terminal running generate_printed_dataset.py or a simple block diagram (Render → Crop → Vary → Resize → Save).
+
+================================================================================
+SLIDE — DATASET COLLECTION (DESIGN)
+================================================================================
+HEADLINE: Dataset Design
+
+SLIDE TEXT:
+• Per script: 13 alphabets × 2 fonts × 4 font sizes × 20 samples = 2,080 images.
+• Font sizes: 10 pt, 14 pt, 18 pt, 22 pt (covers small to large print).
+• Variations (per size): One clean base sample; remaining 19 with one or more of — rotation (±3°), translation (±3 px), scaling (94–106%), stroke width (dilate/erode), contrast (95–105%), gamma (95–105%).
+• Uniqueness: Hash-based duplicate detection so each of the 20 samples per (alphabet, font, size) is distinct.
+• Rendering: High DPI (300), tight crop, resize to 128×128 with character filling ~99.7% of canvas for consistent, character-centric images.
+
+PHOTOS TO PUT:
+  • One image showing "variations" for the same character: pick 4–6 images from the same folder, e.g. dataset/akshar/a/14pt/a_14pt_01.png … a_14pt_05.png (base + rotation, translation, etc.). Arrange in a small grid.
+  • Optional: A simple formula or tree: 13 × 2 × 4 × 20 = 2,080 (per script).
+
+================================================================================
+SLIDE — DATASET COLLECTION (IMPLEMENTATION)
+================================================================================
+HEADLINE: Dataset Implementation
+
+SLIDE TEXT:
+• Hindi dataset (dataset/): Akshar Unicode Regular, Mangal Regular; 13 Devanagari vowels; 2,080 images; metadata.json with font, alphabet, size, variation, hash.
+• Telugu dataset (dataset_Rohit/): Pothana2000, Lohit Telugu Regular; 13 Telugu vowels; 2,080 images; same structure and metadata.
+• Pipeline: render_character() → crop_to_character() → apply variations → resize_to_output() → save PNG + metadata.
+• Tools: Python, Pillow (PIL), NumPy, SciPy (morphology for stroke width), tqdm; config-driven scripts for reproducibility.
+• Total images (both scripts): 4,160 (2,080 × 2).
+
+PHOTOS TO PUT:
+  • Screenshot of your project folder structure: dataset/, dataset_Rohit/, and inside one font (e.g. akshar/ → a/ → 14pt/ with PNGs). Or a screenshot of metadata.json (first 10–15 lines).
+  • Or: Two panels — left "dataset/ (Hindi)", right "dataset_Rohit/ (Telugu)" with one sample image each.
+
+================================================================================
+SLIDE — DATASET COLLECTION (STRUCTURE & SAMPLE)
+================================================================================
+HEADLINE: Dataset Structure and Sample
+
+SLIDE TEXT:
+• Directory structure:
+  dataset/          → akshar/, mangal/ → a, aa, …, aha → 10pt, 14pt, 18pt, 22pt → 20 PNGs each.
+  dataset_Rohit/    → pothana2000/, lohit_telugu/ → same alphabet/size layout.
+• Each image: 128×128 PNG; filename e.g. a_14pt_01.png (alphabet_sizept_index).
+• Metadata: font, alphabet, character (Unicode), font_size_pt, variation, image_hash, output_size, timestamp.
+• Quality: Minimal background; character-centric; variation parameters tuned for "bad print" realism without distortion.
+
+PHOTOS TO PUT:
+  • Main visual: quality_samples.png (grid of dataset samples from visual_quality_checker). Place large, centre or top.
+  • Below or beside: One Hindi sample (e.g. dataset/akshar/a/14pt/a_14pt_01.png) and one Telugu sample (e.g. dataset_Rohit/pothana2000/a/14pt/a_14pt_01.png) with labels "Hindi (Akshar)" and "Telugu (Pothana)".
+
+================================================================================
+SLIDE — EVALUATION STRATEGY
+================================================================================
+HEADLINE: Evaluation Strategy
+
+SLIDE TEXT:
+• Reconstruction: Reconstruction error (MSE/BCE); visual quality of reconstructions and generated samples.
+• Latent space: Latent space visualization (e.g. t-SNE) and interpolation between characters.
+• Comparison: Compare AE vs VAE; script-wise and font-wise analysis.
+• Generation: Visual quality and diversity of generated samples from z ~ N(0, I).
+• Documentation: Document limitations and future work; report metrics in thesis/presentation.
+
+PHOTOS TO PUT:
+  • Optional: Simple diagram — "Reconstruction error" | "t-SNE / interpolation" | "AE vs VAE comparison" with icons or a small flowchart.
+
+================================================================================
+END
+================================================================================

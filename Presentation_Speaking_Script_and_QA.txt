@@ -1,0 +1,255 @@
+================================================================================
+PRESENTATION — SPEAKING SCRIPT & EXPECTED Q&A
+Scope of Work | Methodology | Dataset Collection | Evaluation Strategy
+================================================================================
+Use this for what to SAY during the slides and to prepare for questions.
+================================================================================
+
+
+################################################################################
+PART 1 — SPEAKING SCRIPT (WHAT TO SAY)
+################################################################################
+
+--------------------------------------------------------------------------------
+SLIDE: SCOPE OF WORK
+--------------------------------------------------------------------------------
+
+[Opening]
+"Let me outline the scope of our project."
+
+[Main points to speak]
+"We focus on two Indic scripts: Hindi in Devanagari and Telugu. For each script we use the 13 basic vowels — that is, a, aa, i, ii, u, uu, ri, e, ai, o, au, am, and aha — which are the same phonological set in both scripts.
+
+In this phase we use only printed, font-rendered characters. We are not using handwritten data yet; that is planned for future work. For Hindi we use two fonts: Akshar Unicode Regular and Mangal Regular. For Telugu we use Pothana2000 and Lohit Telugu Regular. You can see one sample from each font here on the slide.
+
+All output images are 128 by 128 pixels, RGB, with the character centred and minimal background. The scope for the current phase is: building the dataset, designing the pipeline, and preparing everything for VAE implementation. The actual VAE training and evaluation come in the next phase."
+
+[Closing]
+"So in short: two scripts, 13 vowels each, two fonts per script, printed only, 128 by 128 — that’s our scope for now."
+
+
+--------------------------------------------------------------------------------
+SLIDE: METHODOLOGY
+--------------------------------------------------------------------------------
+
+[Opening]
+"Our methodology is a five-phase pipeline."
+
+[Phase by phase]
+"Phase 1 is Dataset. We design and generate the printed character dataset for both Hindi and Telugu — two fonts per script, multiple font sizes, and controlled variations so the data is suitable for training.
+
+Phase 2 is Preprocessing. We resize everything to 128 by 128, normalize pixel values, and optionally convert to grayscale. We also maintain a proper train–validation split for training and evaluation.
+
+Phase 3 is the Model. We implement a convolutional encoder-decoder. For the VAE we use the reparameterization trick, and the loss is reconstruction loss plus KL divergence. We tune the latent dimension and architecture as needed.
+
+Phase 4 is Evaluation. We measure reconstruction error — typically MSE or BCE — and we assess visual quality of both reconstructions and generated samples. We also visualize the latent space, for example with t-SNE, and check interpolation between characters.
+
+Phase 5 is Analysis. We compare the standard autoencoder with the VAE, and we do script-wise and font-wise analysis. We document limitations and future work."
+
+[Closing]
+"So the flow is: Dataset → Preprocess → Model → Evaluate → Analyse. We have completed Phase 1 and the pipeline design; the next step is VAE implementation and training."
+
+
+--------------------------------------------------------------------------------
+SLIDE: DATASET DESIGN (first dataset slide)
+--------------------------------------------------------------------------------
+
+[Opening]
+"Here is how the dataset is designed."
+
+[Main points to speak]
+"Per script we have 13 alphabets times 2 fonts times 4 font sizes times 20 samples — that gives 2,080 images per script. So for both Hindi and Telugu together we have 4,160 images.
+
+We use four font sizes: 10, 14, 18, and 22 point, to cover small to large print. For each alphabet–font–size combination we have 20 samples. The first sample is a clean base with no variation. The remaining 19 use one or more of: rotation up to about ±3 degrees, translation up to ±3 pixels, scaling between 94 and 106 percent, stroke width change via dilation or erosion, and small contrast and gamma adjustments. We deliberately did not use Gaussian noise or blur, because they distort the glyph shape and hurt the latent space.
+
+We use hash-based duplicate detection so that all 20 samples for a given alphabet, font, and size are actually distinct. Rendering is done at 300 DPI, then we do a tight crop and resize to 128 by 128 so the character fills about 99.7 percent of the canvas. That keeps the images character-centric and consistent."
+
+[Closing]
+"So the design is: 2,080 images per script, with controlled variations and no duplicates."
+
+
+--------------------------------------------------------------------------------
+SLIDE: DATASET IMPLEMENTATION
+--------------------------------------------------------------------------------
+
+[Opening]
+"On the implementation side, we have two separate datasets."
+
+[Main points to speak]
+"The Hindi dataset lives in the folder ‘dataset’. It uses Akshar Unicode and Mangal, 13 Devanagari vowels, 2,080 images in total, and we store a metadata JSON with font, alphabet, size, variation type, and image hash for each file.
+
+The Telugu dataset is in ‘dataset_Rohit’. It uses Pothana2000 and Lohit Telugu, again 13 vowels and 2,080 images, with the same folder structure and metadata format.
+
+The pipeline is: render character, crop to character bounds, apply the chosen variations, resize to 128 by 128, then save as PNG and append to metadata. We use Python with Pillow for rendering and image ops, NumPy, and SciPy for morphological operations for stroke width. The scripts are config-driven so the process is reproducible.
+
+In total we have 4,160 images — 2,080 for Hindi and 2,080 for Telugu."
+
+[Closing]
+"So both datasets are generated, with full metadata and a clear pipeline from render to save."
+
+
+--------------------------------------------------------------------------------
+SLIDE: DATASET STRUCTURE AND SAMPLE
+--------------------------------------------------------------------------------
+
+[Opening]
+"Here is the folder structure and what each image contains."
+
+[Main points to speak]
+"Under ‘dataset’ we have subfolders for each font — akshar and mangal. Under each font we have one folder per alphabet — a, aa, i, and so on up to aha. Under each alphabet we have folders for each font size — 10pt, 14pt, 18pt, 22pt — and inside each of those we have 20 PNGs. The same structure is used for Telugu in ‘dataset_Rohit’ with pothana2000 and lohit_telugu.
+
+Each image is 128 by 128 PNG. The filename follows the pattern: alphabet, size in pt, and index — for example a_14pt_01.png. In the metadata we store font, alphabet, Unicode character, font size, which variation was applied, image hash, output size, and timestamp.
+
+We tuned the variation parameters so that images look like slightly imperfect print — for example misalignment or ink spread — but not geometrically distorted. So the quality is consistent and character-centric."
+
+[Closing]
+"So the structure is hierarchical: font → alphabet → size → 20 images; and every image has a corresponding metadata entry."
+
+
+--------------------------------------------------------------------------------
+SLIDE: EVALUATION STRATEGY
+--------------------------------------------------------------------------------
+
+[Opening]
+"Our evaluation strategy has five parts."
+
+[Main points to speak]
+"First, reconstruction. We will report reconstruction error — either mean squared error or binary cross-entropy — and we will visually inspect reconstructions to ensure they are sharp and recognizable.
+
+Second, latent space. We will visualize the latent space using methods like t-SNE and we will show interpolation between characters to check that the latent space is smooth and meaningful.
+
+Third, comparison. We will compare the standard autoencoder with the VAE — in terms of reconstruction quality and, for the VAE, quality of generated samples.
+
+Fourth, generation. For the VAE we will sample z from the standard normal and decode to get new character images. We will evaluate visual quality and diversity of these generated samples.
+
+Fifth, we will document limitations and report all metrics clearly in the thesis and in presentations."
+
+[Closing]
+"So we evaluate reconstruction, latent space, AE vs VAE, generation quality, and we document everything properly."
+
+
+################################################################################
+PART 2 — EXPECTED Q&A (QUESTIONS & ANSWERS)
+################################################################################
+
+--------------------------------------------------------------------------------
+SCOPE & DESIGN
+--------------------------------------------------------------------------------
+
+Q1: Why only 13 vowels? Why not consonants or full script?
+A: We start with the 13 basic vowels (swaras) because they are common to both Hindi and Telugu, have relatively simple shape compared to consonants and conjuncts, and let us establish a clean baseline for VAE design. Once the pipeline and evaluation are stable, we plan to extend to consonants and conjuncts in future work.
+
+Q2: Why printed and not handwritten?
+A: Printed data gives us full control over fonts, sizes, and variations, so we can study VAE design and latent space in a reproducible way. Handwritten data is noisier and harder to control. Our plan is to get strong results on printed data first, then do transfer learning or fine-tuning on handwritten datasets like IIIT-Indic-HW-Words in future work.
+
+Q3: Why two fonts per script?
+A: Two fonts per script give us variation in style without blowing up dataset size. We can compare how the VAE learns across fonts and whether latent space organizes by font. It also matches our thesis goal of multi-font Indic character generation.
+
+Q4: Why 128×128? Why not 64×64 or 256×256?
+A: 128×128 is a good balance: enough resolution to preserve stroke detail for Indic characters, but small enough for fast training and manageable model size. 64×64 can lose detail; 256×256 would need more data and compute. We can ablate size in experiments if needed.
+
+Q5: Why fixed DPI 300 and no DPI variation?
+A: After we crop and resize to 128×128, the original DPI no longer affects the final pixel grid. So varying DPI would not add useful variation in the final images and could make rendering less consistent. We fixed DPI at 300 for clear rendering, then applied meaningful variations (rotation, translation, scaling, stroke, contrast, gamma) instead.
+
+
+--------------------------------------------------------------------------------
+DATASET & VARIATIONS
+--------------------------------------------------------------------------------
+
+Q6: Why no Gaussian noise or blur in the variations?
+A: We tried to simulate “bad print” without distorting the glyph. Gaussian noise and blur change the shape and edges of the character and can hurt the latent space — the VAE may learn to encode noise rather than clean structure. So we kept only variations that mimic real print variation: rotation, translation, scaling, stroke width, contrast, and gamma.
+
+Q7: How do you ensure the 20 samples per (alphabet, font, size) are all different?
+A: We compute a hash of the final image (after all transforms and resize). Before saving, we check if that hash is already in the set for that (alphabet, font, size). If it’s a duplicate we regenerate with a new random variation. So we get 20 distinct images per combination.
+
+Q8: What is the “golden rule” for variations you mentioned?
+A: The rule we follow is: “Looks like bad print — OK. Looks distorted — not OK.” So we allow rotation, translation, scaling, stroke width, contrast, and gamma that mimic real printing or scanning, but we avoid anything that breaks the geometry of the character.
+
+Q9: Why 20 samples per (alphabet, font, size)? Is that enough for a VAE?
+A: 20 samples per combination gives 2,080 per script and 4,160 total. With 13 classes and controlled variation, this is enough for an initial VAE to learn a useful latent space. If we see underfitting we can increase samples or add more variation; we can also use data augmentation during training.
+
+Q10: Why store metadata in JSON? What do you use it for?
+A: The metadata records font, alphabet, Unicode character, font size, variation type, image hash, and timestamp for every image. We use it for debugging, for filtering by font or alphabet in experiments, for checking duplicate detection, and for reproducibility. It also helps when we report statistics in the thesis.
+
+
+--------------------------------------------------------------------------------
+METHODOLOGY & MODEL
+--------------------------------------------------------------------------------
+
+Q11: What is the reparameterization trick and why do you need it?
+A: In a VAE the encoder outputs a mean and variance, and we sample z from that distribution. Sampling is not differentiable. The reparameterization trick writes z = μ + σ * ε where ε is standard normal, so we can backpropagate through μ and σ. That lets us train the encoder and decoder end-to-end with gradient descent.
+
+Q12: What loss function will you use for the VAE?
+A: We use the standard VAE loss: reconstruction loss — either MSE or binary cross-entropy — plus β times the KL divergence between the approximate posterior q(z|x) and the prior p(z), usually standard normal. We may tune β or use KL annealing if the KL collapses early in training.
+
+Q13: Why compare AE vs VAE?
+A: The standard autoencoder gives a baseline for reconstruction quality. The VAE adds a probabilistic latent space, so we can sample and generate. Comparing them shows whether the VAE’s regularization is worth the extra complexity and whether the latent space is useful for generation and interpolation.
+
+Q14: What latent dimension are you planning?
+A: We will try dimensions in the range of 32 to 128. Too small can bottleneck reconstruction; too large can make the latent space under-constrained. We will choose based on validation reconstruction and generation quality.
+
+
+--------------------------------------------------------------------------------
+EVALUATION
+--------------------------------------------------------------------------------
+
+Q15: How will you evaluate “visual quality” of reconstructions and generations?
+A: We will do human inspection: check that reconstructions are sharp and recognizable, and that generated samples look like plausible characters. We may also use simple metrics like SSIM or a small classifier that checks whether generated images are recognizable. For a BTP, qualitative assessment plus reconstruction error is standard.
+
+Q16: What is t-SNE and why use it for the latent space?
+A: t-SNE is a dimensionality reduction method that projects high-dimensional points to 2D while trying to preserve local structure. We will encode our test set, get latent codes, run t-SNE, and plot. We want to see if characters of the same class or script cluster together, which would suggest the VAE learned meaningful structure.
+
+Q17: How will you evaluate interpolation?
+A: We take two character images, encode them to get z1 and z2, then decode points along the line (or curve) between z1 and z2 in latent space. We expect to see a smooth morph from one character to the other. If the path goes through blurry or nonsensical images, the latent space is not smooth.
+
+Q18: Will you use FID or Inception Score for generation?
+A: For this project we focus on reconstruction error, visual inspection, t-SNE, and interpolation. FID and Inception Score are more common for large-scale natural images. If we have time we can try them, but they are not central to our current evaluation plan.
+
+
+--------------------------------------------------------------------------------
+FUTURE & LIMITATIONS
+--------------------------------------------------------------------------------
+
+Q19: What are the main limitations of your current work?
+A: We use only printed data and only 13 vowels, so we are not yet handling consonants, conjuncts, or handwritten script. The dataset size is moderate (4,160 images). We have not yet trained the VAE, so all evaluation plans are forward-looking. We will document these clearly in the thesis.
+
+Q20: What is the first thing you will do after the presentation?
+A: Implement the convolutional VAE — encoder and decoder — and train on our Hindi and Telugu datasets. Then we will run evaluation: reconstruction error, visual inspection, t-SNE, and interpolation, and compare with a baseline autoencoder.
+
+Q21: How would you extend this to handwritten data?
+A: We would use a dataset like IIIT-Indic-HW-Words. Option one: pre-train the VAE on our printed data, then fine-tune on handwritten. Option two: train from scratch on handwritten only. We would compare both and report which gives better reconstruction and generation for handwritten characters.
+
+Q22: Could you use a GAN instead of a VAE?
+A: Yes. GANs can give sharper-looking samples but are harder to train and don’t give a direct latent representation for each image. Our focus is on learning a structured latent space and doing interpolation, which VAEs are well suited for. We could compare with a GAN in future work.
+
+
+--------------------------------------------------------------------------------
+TECHNICAL / IMPLEMENTATION
+--------------------------------------------------------------------------------
+
+Q23: What framework will you use — PyTorch or TensorFlow?
+A: We plan to use PyTorch for the VAE implementation, as it is common in research and we have experience with it. The dataset loading will use PyTorch DataLoader with our metadata and folder structure.
+
+Q24: How long does dataset generation take?
+A: Generating 2,080 images for one script takes on the order of a few minutes on a typical laptop, depending on CPU. Both scripts together are under about 10 minutes. The bottleneck is font rendering and image operations, not I/O.
+
+Q25: Why Python and Pillow? Any other tools?
+A: Python is standard for ML and easy to script. Pillow handles font rendering, crop, resize, and basic transforms. We use SciPy for morphological dilation and erosion for stroke-width variation, NumPy for arrays and hashing, and tqdm for progress. The pipeline is reproducible from config and script.
+
+
+################################################################################
+QUICK REFERENCE — ONE-LINE ANSWERS (if time is short)
+################################################################################
+
+• Why 13 vowels?     → Same set in both scripts; simple baseline before consonants.
+• Why printed?       → Controlled, reproducible; handwritten in future work.
+• Why two fonts?     → Style variation; compare font-wise learning.
+• Why no noise/blur? → They distort glyphs; we keep “bad print” style only.
+• Reparameterization?→ z = μ + σ*ε so sampling is differentiable.
+• AE vs VAE?         → AE = baseline; VAE = generative + latent structure.
+• How evaluate?      → Reconstruction error, visual check, t-SNE, interpolation.
+• Next step?         → Implement and train VAE; run full evaluation.
+
+================================================================================
+END OF SPEAKING SCRIPT & Q&A
+================================================================================

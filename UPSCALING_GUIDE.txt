@@ -1,0 +1,113 @@
+================================================================================
+IMAGE UPSCALING GUIDE
+================================================================================
+
+SETUP COMPLETE ✓
+---------------
+- Virtual environment created: venv/
+- Pillow installed and working
+- Upscaling script ready: upscale_images.py
+
+UPSCALING METHODS AVAILABLE
+----------------------------
+1. LANCZOS (Recommended) - Best quality for character images
+   - Smooth, high-quality upscaling
+   - Best for preserving character details
+   - Slightly slower but worth it
+
+2. BICUBIC - Good quality, smooth
+   - Faster than Lanczos
+   - Good for most cases
+
+3. BILINEAR - Moderate quality
+   - Faster
+   - Acceptable for simple images
+
+4. NEAREST - Fast but pixelated
+   - Not recommended for character images
+   - Creates blocky artifacts
+
+HOW TO USE
+----------
+
+1. TEST MODE (Recommended first):
+   Upscales only 5 images per directory to test:
+   
+   venv/bin/python upscale_images.py --size 64 --method lanczos --test
+   
+   This creates directories like: vowels/1_upscaled_64/
+
+2. FULL UPSCALING (All images):
+   Upscales all 221 images per directory:
+   
+   venv/bin/python upscale_images.py --size 64 --method lanczos
+   
+   This will process all 2,652 images (takes a few minutes)
+
+3. UPSCALE TO 128x128:
+   For higher resolution:
+   
+   venv/bin/python upscale_images.py --size 128 --method lanczos
+
+4. COMPARE METHODS:
+   See which method looks best:
+   
+   venv/bin/python upscale_images.py --compare --size 64
+   
+   Opens comparison images in: upscale_comparison/
+
+OUTPUT STRUCTURE
+----------------
+Original: vowels/1/001_01.jpg (28x28)
+Upscaled: vowels/1_upscaled_64/001_01.png (64x64)
+
+- Images are saved as PNG (better quality than JPG)
+- Original images are NOT modified
+- New directories created with suffix: _upscaled_64 or _upscaled_128
+
+RECOMMENDED SETTINGS FOR VAE
+-----------------------------
+Size: 64x64 (good balance of quality and training speed)
+      OR 128x128 (higher quality, slower training)
+
+Method: lanczos (best quality)
+
+Example command for full dataset at 64x64:
+  venv/bin/python upscale_images.py --size 64 --method lanczos
+
+Example command for full dataset at 128x128:
+  venv/bin/python upscale_images.py --size 128 --method lanczos
+
+VERIFICATION
+------------
+After upscaling, check:
+1. Open a few upscaled images to verify quality
+2. Compare with original 28x28 images
+3. Ensure characters are clear and readable
+4. Check that all directories were processed
+
+TIME ESTIMATE
+-------------
+- Test mode (5 images/dir): ~10 seconds
+- Full dataset 64x64: ~2-5 minutes
+- Full dataset 128x128: ~3-7 minutes
+
+STORAGE
+-------
+- Original 28x28 JPG: ~500 bytes each
+- Upscaled 64x64 PNG: ~2-5 KB each
+- Upscaled 128x128 PNG: ~5-15 KB each
+
+Total storage for 2,652 images:
+- 64x64: ~5-13 MB
+- 128x128: ~13-40 MB
+
+NEXT STEPS AFTER UPSCALING
+---------------------------
+1. Verify upscaled image quality
+2. Select 30 diverse samples per alphabet (from 221 available)
+3. Organize selected samples for training
+4. Split into train/val/test sets
+5. Proceed with VAE implementation
+
+================================================================================
